@@ -1,0 +1,77 @@
+.work-filters {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+
+    .work-filters__button {
+        background: none;
+        border: none;
+        color: var(--white);
+        font-family: var(--font-cormorant-garamond);
+        font-size: 18px;
+        font-weight: 400;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+
+        &:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        &--active {
+            font-weight: 600;
+            color: rgba(205, 170, 125, 1); // Цвет текста при активном состоянии
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 20px;
+                right: 20px;
+                height: 2px;
+                background: rgba(205, 170, 125, 1); // Цвет бордера при активном состоянии
+            }
+        }
+    }
+}
+
+/* Адаптив для фильтров */
+@media all and (max-width: 768px) {
+    .work-filters {
+        gap: 20px;
+        margin-bottom: 40px;
+
+        .work-filters__button {
+            font-size: 16px;
+            padding: 8px 16px;
+
+            &--active {
+                &::after {
+                    left: 16px;
+                    right: 16px;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 480px) {
+    .work-filters {
+        gap: 15px;
+
+        .work-filters__button {
+            font-size: 14px;
+            padding: 6px 12px;
+
+            &--active {
+                &::after {
+                    left: 12px;
+                    right: 12px;
+                }
+            }
+        }
+    }
+}

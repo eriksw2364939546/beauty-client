@@ -1,0 +1,13 @@
+.product-list {
+    &-empty {
+        text-align: center;
+        padding: 60px 0;
+
+        p {
+            color: var(--white);
+            font-family: var(--font-cormorant-garamond);
+            font-size: 20px;
+            opacity: 0.7;
+        }
+    }
+}

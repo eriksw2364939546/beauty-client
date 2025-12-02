@@ -1,0 +1,112 @@
+section.descr-section {
+    .descr-section__icon-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+
+    }
+
+    h2 {
+        text-align: center;
+        margin: 0 auto;
+        color: var(--white);
+        max-width: 856px;
+        font-size: 27px;
+        font-family: var(--font-cormorant-garamond);
+        font-weight: 700;
+        font-style: bold;
+        letter-spacing: 0%;
+    }
+}
+
+/* Планшеты */
+@media all and (max-width: 890px) {
+    section.descr-section {
+
+        .descr-section__icon-wrapper {
+            margin-bottom: 40px;
+
+            img {
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        h2 {
+            font-size: 24px;
+            line-height: 2;
+            padding: 0 20px;
+        }
+    }
+}
+
+/* Большие мобильные */
+@media all and (max-width: 768px) {
+    section.descr-section {
+
+        .descr-section__icon-wrapper {
+            margin-bottom: 35px;
+
+            img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        h2 {
+            font-size: 22px;
+            padding: 0 15px;
+        }
+    }
+}
+
+/* Средние мобильные */
+@media all and (max-width: 640px) {
+    section.descr-section {
+
+        .descr-section__icon-wrapper {
+            margin-bottom: 30px;
+
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        h2 {
+            font-size: 20px;
+            padding: 0 10px;
+        }
+    }
+}
+
+/* Маленькие мобильные */
+@media all and (max-width: 480px) {
+    section.descr-section {
+
+        .descr-section__icon-wrapper {
+            margin-bottom: 25px;
+
+            img {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        h2 {
+            font-size: 18px;
+            padding: 0 5px;
+        }
+    }
+}
+
+/* Очень маленькие мобильные */
+@media all and (max-width: 375px) {
+    section.descr-section {
+
+        h2 {
+            font-size: 17px;
+
+        }
+    }
+}
