@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="hero-container">
         {/* Картинка как обычный img */}
         <Image
-          src="/Img/hero.jpg"
+          src="/img/hero.jpg"
           alt="Салон красоты Delote-Beauty"
           width={1920}
           height={1038}
