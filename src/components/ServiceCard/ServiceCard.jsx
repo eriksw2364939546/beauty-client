@@ -9,7 +9,7 @@ const ServiceCard = ({ image, title }) => {
       <div className="service-card__image-wrapper">
         {image || (
           <Image
-            src="/img/service-default-image.png"
+            src="/Img/service-default-image.png"
             alt={title}
             width={396}
             height={300}

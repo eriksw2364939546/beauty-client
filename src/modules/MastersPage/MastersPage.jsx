@@ -12,7 +12,7 @@ const MastersPage = () => {
       experience: "8 лет опыта",
       image: (
         <Image
-          src="/img/master-default-image.png"
+          src="/Img/master-default-image.png"
           alt="Анна Иванова"
           width={400}
           height={477}
@@ -26,7 +26,7 @@ const MastersPage = () => {
       experience: "6 лет опыта",
       image: (
         <Image
-          src="/img/master-default-image.png"
+          src="/Img/master-default-image.png"
           alt="Мария Петрова"
           width={396}
           height={500}
@@ -40,7 +40,7 @@ const MastersPage = () => {
       experience: "10 лет опыта",
       image: (
         <Image
-          src="/img/master-default-image.png"
+          src="/Img/master-default-image.png"
           alt="Елена Сидорова"
           width={396}
           height={500}
@@ -54,7 +54,7 @@ const MastersPage = () => {
       experience: "5 лет опыта",
       image: (
         <Image
-          src="/img/master-default-image.png"
+          src="/Img/master-default-image.png"
           alt="Ольга Николаева"
           width={396}
           height={500}
@@ -68,7 +68,7 @@ const MastersPage = () => {
       experience: "7 лет опыта",
       image: (
         <Image
-          src="/img/master-default-image.png"
+          src="/Img/master-default-image.png"
           alt="Ирина Кузнецова"
           width={396}
           height={500}

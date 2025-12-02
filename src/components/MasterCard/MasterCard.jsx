@@ -8,7 +8,7 @@ const MasterCard = ({ image, title, description }) => {
       <div className="master-card__image-wrapper">
         {image || (
           <Image
-            src="/img/master-default-image.png"
+            src="/Img/master-default-image.png"
             alt={title}
             width={400}
             height={477}

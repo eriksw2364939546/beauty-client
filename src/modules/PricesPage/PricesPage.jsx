@@ -26,7 +26,7 @@ const PricesPage = () => {
       {/* Главная картинка */}
       <div className="prices-hero__image">
         <Image
-          src="/img/pricesPageImage.jpg"
+          src="/Img/pricesPageImage.jpg"
           alt="Цены на услуги салона красоты"
           width={1920}
           height={600}

@@ -12,37 +12,37 @@ const OurWorksSection = () => {
   const works = [
     {
       id: 1,
-      image: "/img/service-default-image.png",
+      image: "/Img/service-default-image.png",
       category: "Парикмахерские услуги",
       filter: "hairdressing",
     },
     {
       id: 2,
-      image: "/img/service-default-image.png",
+      image: "/Img/service-default-image.png",
       category: "Маникюр",
       filter: "manicure",
     },
     {
       id: 3,
-      image: "/img/service-default-image.png",
+      image: "/Img/service-default-image.png",
       category: "Педикюр",
       filter: "pedicure",
     },
     {
       id: 4,
-      image: "/img/service-default-image.png",
+      image: "/Img/service-default-image.png",
       category: "Парикмахерские услуги",
       filter: "hairdressing",
     },
     {
       id: 5,
-      image: "/img/service-default-image.png",
+      image: "/Img/service-default-image.png",
       category: "Маникюр",
       filter: "manicure",
     },
     {
       id: 6,
-      image: "/img/service-default-image.png",
+      image: "/Img/service-default-image.png",
       category: "Педикюр",
       filter: "pedicure",
     },

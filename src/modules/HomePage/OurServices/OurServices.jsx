@@ -10,7 +10,7 @@ const OurServices = () => {
       title: "Парикмахерские услуги",
       image: (
         <Image
-          src="/img/service-default-image.png"
+          src="/Img/service-default-image.png"
           alt="Парикмахерские услуги"
           width={300}
           height={250}
@@ -22,7 +22,7 @@ const OurServices = () => {
       title: "Маникюр и педикюр",
       image: (
         <Image
-          src="/img/service-default-image.png"
+          src="/Img/service-default-image.png"
           alt="Маникюр и педикюр"
           width={300}
           height={250}
@@ -34,7 +34,7 @@ const OurServices = () => {
       title: "Косметология",
       image: (
         <Image
-          src="/img/service-default-image.png"
+          src="/Img/service-default-image.png"
           alt="Косметология"
           width={300}
           height={250}
@@ -46,7 +46,7 @@ const OurServices = () => {
       title: "Макияж",
       image: (
         <Image
-          src="/img/service-default-image.png"
+          src="/Img/service-default-image.png"
           alt="Макияж"
           width={300}
           height={250}
@@ -58,7 +58,7 @@ const OurServices = () => {
       title: "Массаж",
       image: (
         <Image
-          src="/img/service-default-image.png"
+          src="/Img/service-default-image.png"
           alt="Массаж"
           width={300}
           height={250}
