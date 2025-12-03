@@ -78,7 +78,7 @@ const Header = () => {
               <Link href="#" onClick={closeMenu}>
                 Отзывы
               </Link>
-              <Link href="#" onClick={closeMenu}>
+              <Link href="/contacts" onClick={closeMenu}>
                 Контакты
               </Link>
             </div>

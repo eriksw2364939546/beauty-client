@@ -1,0 +1,23 @@
+// ═══════════════════════════════════════════════════════════════════════════
+// Products Page Styles
+// ═══════════════════════════════════════════════════════════════════════════
+
+.products-page {
+    &__title {
+        font-weight: 600;
+        color: #18181b;
+    }
+
+    &__code {
+        font-size: 13px;
+        padding: 4px 8px;
+        background-color: #f4f4f5;
+        border-radius: 4px;
+        color: #52525b;
+    }
+
+    &__price {
+        font-weight: 600;
+        color: #047857;
+    }
+}

@@ -1,0 +1,448 @@
+// ═══════════════════════════════════════════════════════════════════════════
+// Admin Layout Styles
+// ═══════════════════════════════════════════════════════════════════════════
+
+$admin-bg: #f4f4f5;
+$admin-content-bg: #ffffff;
+$sidebar-width: 260px;
+$sidebar-width-collapsed: 72px;
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: $admin-bg;
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // Main Content
+    // ─────────────────────────────────────────────────────────────────────────
+    &__main {
+        flex: 1;
+        min-width: 0; // Для корректного overflow
+        margin-left: 0;
+        padding: 24px;
+        overflow-x: auto;
+    }
+
+    &__content {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Общие стили для админ-страниц
+// ═══════════════════════════════════════════════════════════════════════════
+
+.admin-page {
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // Header страницы
+    // ─────────────────────────────────────────────────────────────────────────
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    &__title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #18181b;
+        margin: 0;
+    }
+
+    &__subtitle {
+        font-size: 14px;
+        color: #71717a;
+        margin-top: 4px;
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // Карточки/Блоки
+    // ─────────────────────────────────────────────────────────────────────────
+    &__card {
+        background-color: $admin-content-bg;
+        border-radius: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        padding: 24px;
+        margin-bottom: 24px;
+    }
+
+    &__card-title {
+        font-size: 18px;
+        font-weight: 600;
+        color: #18181b;
+        margin: 0 0 16px 0;
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // Таблицы
+    // ─────────────────────────────────────────────────────────────────────────
+    &__table-wrapper {
+        overflow-x: auto;
+        margin: -24px;
+        padding: 0;
+
+        &::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #f4f4f5;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #d4d4d8;
+            border-radius: 3px;
+        }
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+
+        th,
+        td {
+            padding: 14px 24px;
+            text-align: left;
+            border-bottom: 1px solid #e4e4e7;
+        }
+
+        th {
+            font-weight: 600;
+            color: #52525b;
+            background-color: #fafafa;
+            white-space: nowrap;
+        }
+
+        td {
+            color: #3f3f46;
+        }
+
+        tbody tr {
+            transition: background-color 0.15s ease;
+
+            &:hover {
+                background-color: #fafafa;
+            }
+        }
+
+        // Ячейка с изображением
+        &-image {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        // Ячейка с действиями
+        &-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // Пустое состояние
+    // ─────────────────────────────────────────────────────────────────────────
+    &__empty {
+        text-align: center;
+        padding: 48px 24px;
+        color: #71717a;
+
+        &-icon {
+            font-size: 48px;
+            color: #d4d4d8;
+            margin-bottom: 16px;
+        }
+
+        &-text {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // Форма
+    // ─────────────────────────────────────────────────────────────────────────
+    &__form {
+        max-width: 600px;
+    }
+
+    &__form-group {
+        margin-bottom: 20px;
+    }
+
+    &__form-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        color: #3f3f46;
+        margin-bottom: 6px;
+    }
+
+    &__form-input,
+    &__form-textarea,
+    &__form-select {
+        width: 100%;
+        padding: 10px 14px;
+        font-size: 14px;
+        border: 1px solid #d4d4d8;
+        border-radius: 8px;
+        background-color: #fff;
+        color: #18181b;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: #c9a86c;
+            box-shadow: 0 0 0 3px rgba(201, 168, 108, 0.15);
+        }
+
+        &::placeholder {
+            color: #a1a1aa;
+        }
+
+        &:disabled {
+            background-color: #f4f4f5;
+            cursor: not-allowed;
+        }
+    }
+
+    &__form-textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    &__form-hint {
+        font-size: 12px;
+        color: #71717a;
+        margin-top: 4px;
+    }
+
+    &__form-error {
+        font-size: 12px;
+        color: #ef4444;
+        margin-top: 4px;
+    }
+
+    &__form-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 24px;
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Кнопки
+// ═══════════════════════════════════════════════════════════════════════════
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    // Primary (золотой)
+    &--primary {
+        background-color: #c9a86c;
+        color: #fff;
+
+        &:hover:not(:disabled) {
+            background-color: #b8954f;
+        }
+    }
+
+    // Secondary (серый)
+    &--secondary {
+        background-color: #f4f4f5;
+        color: #3f3f46;
+
+        &:hover:not(:disabled) {
+            background-color: #e4e4e7;
+        }
+    }
+
+    // Danger (красный)
+    &--danger {
+        background-color: #fef2f2;
+        color: #ef4444;
+
+        &:hover:not(:disabled) {
+            background-color: #fee2e2;
+        }
+    }
+
+    // Ghost (прозрачный)
+    &--ghost {
+        background-color: transparent;
+        color: #71717a;
+
+        &:hover:not(:disabled) {
+            background-color: #f4f4f5;
+            color: #3f3f46;
+        }
+    }
+
+    // Размеры
+    &--sm {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    &--lg {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+
+    // Иконка
+    .material-icons {
+        font-size: 18px;
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Badges
+// ═══════════════════════════════════════════════════════════════════════════
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 9999px;
+
+    &--service {
+        background-color: #dbeafe;
+        color: #1d4ed8;
+    }
+
+    &--work {
+        background-color: #fce7f3;
+        color: #be185d;
+    }
+
+    &--price {
+        background-color: #d1fae5;
+        color: #047857;
+    }
+
+    &--product {
+        background-color: #fef3c7;
+        color: #b45309;
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Alerts
+// ═══════════════════════════════════════════════════════════════════════════
+
+.alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 16px;
+
+    .material-icons {
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+
+    &--success {
+        background-color: #d1fae5;
+        color: #047857;
+    }
+
+    &--error {
+        background-color: #fee2e2;
+        color: #dc2626;
+    }
+
+    &--warning {
+        background-color: #fef3c7;
+        color: #b45309;
+    }
+
+    &--info {
+        background-color: #dbeafe;
+        color: #1d4ed8;
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Responsive
+// ═══════════════════════════════════════════════════════════════════════════
+
+@media (max-width: 1024px) {
+    .admin-layout {
+        &__main {
+            padding: 16px;
+        }
+    }
+
+    .admin-page {
+        &__header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        &__title {
+            font-size: 24px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-layout {
+        &__main {
+            padding: 12px;
+            margin-left: 0;
+        }
+    }
+
+    .admin-page {
+        &__card {
+            padding: 16px;
+            border-radius: 8px;
+        }
+
+        &__table {
+
+            th,
+            td {
+                padding: 12px 16px;
+            }
+        }
+
+        &__form-actions {
+            flex-direction: column;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
