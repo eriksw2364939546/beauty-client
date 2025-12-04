@@ -1,7 +1,7 @@
-import ProductPage from "@/modules/ProductPage/ProductPage"
+import ProductDetailPage from "@/modules/ProductDetailPage/ProductDetailPage"
 
 export default function PRODUCTPage() {
     return (
-        <ProductPage />
+        <ProductDetailPage />
     )
 }

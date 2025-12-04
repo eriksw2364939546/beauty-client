@@ -52,7 +52,10 @@ export default function MastersPage({ masters = [] }) {
             {masters.length} professionnel{masters.length !== 1 ? "s" : ""}
           </p>
         </div>
-        <Link href="/beauty-admin/masters/new" className="btn btn--primary">
+        <Link
+          href="/beauty-admin/masters-admin/new"
+          className="btn btn--primary"
+        >
           <span className="material-icons">add</span>
           Nouveau professionnel
         </Link>
@@ -76,7 +79,10 @@ export default function MastersPage({ masters = [] }) {
             <p className="admin-page__empty-text">
               Aucun professionnel pour le moment
             </p>
-            <Link href="/beauty-admin/masters/new" className="btn btn--primary">
+            <Link
+              href="/beauty-admin/masters-admin/new"
+              className="btn btn--primary"
+            >
               Ajouter un professionnel
             </Link>
           </div>
@@ -118,7 +124,9 @@ export default function MastersPage({ masters = [] }) {
                     <td>
                       <div className="admin-page__table-actions">
                         <Link
-                          href={`/beauty-admin/masters/${getId(master)}/edit`}
+                          href={`/beauty-admin/masters-admin/${getId(
+                            master
+                          )}/edit`}
                           className="btn btn--ghost btn--sm"
                           title="Modifier"
                         >

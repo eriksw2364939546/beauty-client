@@ -21,7 +21,7 @@ export default function CategoryNewPage() {
   // При успехе — редирект на список
   useEffect(() => {
     if (state.success) {
-      router.push("/beauty-admin/categories");
+      router.push("/beauty-admin/categories-admin");
     }
   }, [state.success, router]);
 
@@ -40,7 +40,10 @@ export default function CategoryNewPage() {
           <h1 className="admin-page__title">Nouvelle catégorie</h1>
           <p className="admin-page__subtitle">Créer une nouvelle catégorie</p>
         </div>
-        <Link href="/beauty-admin/categories" className="btn btn--secondary">
+        <Link
+          href="/beauty-admin/categories-admin"
+          className="btn btn--secondary"
+        >
           <span className="material-icons">arrow_back</span>
           Retour
         </Link>
@@ -140,7 +143,7 @@ export default function CategoryNewPage() {
               )}
             </button>
             <Link
-              href="/beauty-admin/categories"
+              href="/beauty-admin/categories-admin"
               className="btn btn--secondary"
             >
               Annuler

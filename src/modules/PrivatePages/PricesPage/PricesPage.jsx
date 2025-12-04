@@ -51,7 +51,10 @@ export default function PricesPage({ prices = [] }) {
             {prices.length} tarif{prices.length !== 1 ? "s" : ""}
           </p>
         </div>
-        <Link href="/beauty-admin/prices/new" className="btn btn--primary">
+        <Link
+          href="/beauty-admin/prices-admin/new"
+          className="btn btn--primary"
+        >
           <span className="material-icons">add</span>
           Nouveau tarif
         </Link>
@@ -71,7 +74,10 @@ export default function PricesPage({ prices = [] }) {
           <div className="admin-page__empty">
             <span className="material-icons admin-page__empty-icon">euro</span>
             <p className="admin-page__empty-text">Aucun tarif pour le moment</p>
-            <Link href="/beauty-admin/prices/new" className="btn btn--primary">
+            <Link
+              href="/beauty-admin/prices-admin/new"
+              className="btn btn--primary"
+            >
               Ajouter un tarif
             </Link>
           </div>
@@ -109,7 +115,9 @@ export default function PricesPage({ prices = [] }) {
                     <td>
                       <div className="admin-page__table-actions">
                         <Link
-                          href={`/beauty-admin/prices/${getId(price)}/edit`}
+                          href={`/beauty-admin/prices-admin/${getId(
+                            price
+                          )}/edit`}
                           className="btn btn--ghost btn--sm"
                           title="Modifier"
                         >

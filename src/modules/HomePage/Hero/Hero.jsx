@@ -9,7 +9,7 @@ const Hero = () => {
         {/* Картинка как обычный img */}
         <Image
           src="/Img/hero.jpg"
-          alt="Салон красоты Delote-Beauty"
+          alt="Salon de beauté Delote-Beauty"
           width={1920}
           height={1038}
           className="hero-image"
@@ -19,10 +19,10 @@ const Hero = () => {
         {/* Заголовок поверх картинки */}
         <div className="hero-content">
           <h1>
-            Салон красоты <br />
+            Salon de beauté <br />
             <span>«Delote-Beauty»</span>
             <br />
-            на Крестовском
+            sur Krestovsky
           </h1>
         </div>
       </div>

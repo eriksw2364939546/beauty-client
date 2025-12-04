@@ -23,7 +23,7 @@ export default function PriceNewPage({ services }) {
   // При успехе — редирект на список
   useEffect(() => {
     if (state.success) {
-      router.push("/beauty-admin/prices");
+      router.push("/beauty-admin/prices-admin");
     }
   }, [state.success, router]);
 
@@ -35,7 +35,7 @@ export default function PriceNewPage({ services }) {
           <h1 className="admin-page__title">Nouveau tarif</h1>
           <p className="admin-page__subtitle">Ajouter un tarif à la grille</p>
         </div>
-        <Link href="/beauty-admin/prices" className="btn btn--secondary">
+        <Link href="/beauty-admin/prices-admin" className="btn btn--secondary">
           <span className="material-icons">arrow_back</span>
           Retour
         </Link>
@@ -150,7 +150,10 @@ export default function PriceNewPage({ services }) {
                 </>
               )}
             </button>
-            <Link href="/beauty-admin/prices" className="btn btn--secondary">
+            <Link
+              href="/beauty-admin/prices-admin"
+              className="btn btn--secondary"
+            >
               Annuler
             </Link>
           </div>

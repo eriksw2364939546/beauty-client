@@ -16,8 +16,11 @@ import "./CategoryFormPage.scss";
 export default function CategoryEditPage({ category }) {
   const router = useRouter();
 
+  // Получаем id (поддержка _id и id)
+  const categoryId = category._id || category.id;
+
   // Bind id к action
-  const updateCategoryWithId = updateCategory.bind(null, category._id);
+  const updateCategoryWithId = updateCategory.bind(null, categoryId);
 
   const [state, formAction, isPending] = useActionState(updateCategoryWithId, {
     success: false,
@@ -27,7 +30,7 @@ export default function CategoryEditPage({ category }) {
   // При успехе — редирект на список
   useEffect(() => {
     if (state.success) {
-      router.push("/beauty-admin/categories");
+      router.push("/beauty-admin/categories-admin");
     }
   }, [state.success, router]);
 
@@ -39,7 +42,10 @@ export default function CategoryEditPage({ category }) {
           <h1 className="admin-page__title">Modifier la catégorie</h1>
           <p className="admin-page__subtitle">{category.title}</p>
         </div>
-        <Link href="/beauty-admin/categories" className="btn btn--secondary">
+        <Link
+          href="/beauty-admin/categories-admin"
+          className="btn btn--secondary"
+        >
           <span className="material-icons">arrow_back</span>
           Retour
         </Link>
@@ -150,7 +156,7 @@ export default function CategoryEditPage({ category }) {
               )}
             </button>
             <Link
-              href="/beauty-admin/categories"
+              href="/beauty-admin/categories-admin"
               className="btn btn--secondary"
             >
               Annuler

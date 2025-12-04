@@ -106,7 +106,7 @@ class ServicesService {
         const { data } = await this.getAll({ limit: 100 }, options);
 
         return data.map(service => ({
-            value: service._id,
+            value: service._id || service.id,
             label: service.title,
         }));
     }

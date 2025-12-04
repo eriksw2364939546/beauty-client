@@ -28,42 +28,42 @@ export default function DashboardPage({ stats }) {
       title: "Catégories",
       count: stats.categories,
       icon: Folder,
-      href: "/beauty-admin/categories",
+      href: "/beauty-admin/categories-admin",
       color: "blue",
     },
     {
       title: "Services",
       count: stats.services,
       icon: Scissors,
-      href: "/beauty-admin/services",
+      href: "/beauty-admin/services-admin",
       color: "purple",
     },
     {
       title: "Réalisations",
       count: stats.works,
       icon: Images,
-      href: "/beauty-admin/works",
+      href: "/beauty-admin/works-admin",
       color: "pink",
     },
     {
       title: "Professionnels",
       count: stats.masters,
       icon: Users,
-      href: "/beauty-admin/masters",
+      href: "/beauty-admin/masters-admin",
       color: "green",
     },
     {
       title: "Produits",
       count: stats.products,
       icon: Package,
-      href: "/beauty-admin/products",
+      href: "/beauty-admin/products-admin",
       color: "orange",
     },
     {
       title: "Tarifs",
       count: stats.prices,
       icon: Euro,
-      href: "/beauty-admin/prices",
+      href: "/beauty-admin/prices-admin",
       color: "teal",
     },
   ];
@@ -104,19 +104,31 @@ export default function DashboardPage({ stats }) {
       <div className="dashboard-page__section">
         <h2 className="dashboard-page__section-title">Actions rapides</h2>
         <div className="dashboard-page__actions">
-          <Link href="/beauty-admin/services/new" className="btn btn--primary">
+          <Link
+            href="/beauty-admin/services-admin/new"
+            className="btn btn--primary"
+          >
             <Plus size={18} />
             Nouveau service
           </Link>
-          <Link href="/beauty-admin/works/new" className="btn btn--primary">
+          <Link
+            href="/beauty-admin/works-admin/new"
+            className="btn btn--primary"
+          >
             <Plus size={18} />
             Nouvelle réalisation
           </Link>
-          <Link href="/beauty-admin/products/new" className="btn btn--primary">
+          <Link
+            href="/beauty-admin/products-admin/new"
+            className="btn btn--primary"
+          >
             <Plus size={18} />
             Nouveau produit
           </Link>
-          <Link href="/beauty-admin/prices/new" className="btn btn--primary">
+          <Link
+            href="/beauty-admin/prices-admin/new"
+            className="btn btn--primary"
+          >
             <Plus size={18} />
             Nouveau tarif
           </Link>

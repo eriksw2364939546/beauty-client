@@ -6,15 +6,14 @@ const WorkFilters = ({ onFilterChange }) => {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const filters = [
-    { id: "all", label: "Показать все" },
-    { id: "hairdressing", label: "Парикмахерские услуги" },
-    { id: "manicure", label: "Маникюр" },
-    { id: "pedicure", label: "Педикюр" },
+    { id: "all", label: "Afficher tout" },
+    { id: "hairdressing", label: "Services de coiffure" },
+    { id: "manicure", label: "Manucure" },
+    { id: "pedicure", label: "Pédicure" },
   ];
 
   const handleFilterClick = (filterId) => {
     setActiveFilter(filterId);
-    // В будущем здесь будет отправка на бекенд
     onFilterChange(filterId);
   };
 

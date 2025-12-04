@@ -7,13 +7,13 @@ const MastersPage = () => {
   const masters = [
     {
       id: 1,
-      name: "Анна Иванова",
-      specialization: "Парикмахер-стилист",
-      experience: "8 лет опыта",
+      name: "Anna Ivanova",
+      specialization: "Coiffeuse-styliste",
+      experience: "8 ans d’expérience",
       image: (
         <Image
           src="/Img/master-default-image.png"
-          alt="Анна Иванова"
+          alt="Anna Ivanova"
           width={400}
           height={477}
         />
@@ -21,13 +21,13 @@ const MastersPage = () => {
     },
     {
       id: 2,
-      name: "Мария Петрова",
-      specialization: "Визажист",
-      experience: "6 лет опыта",
+      name: "Maria Petrova",
+      specialization: "Maquilleuse",
+      experience: "6 ans d’expérience",
       image: (
         <Image
           src="/Img/master-default-image.png"
-          alt="Мария Петрова"
+          alt="Maria Petrova"
           width={396}
           height={500}
         />
@@ -35,13 +35,13 @@ const MastersPage = () => {
     },
     {
       id: 3,
-      name: "Елена Сидорова",
-      specialization: "Косметолог",
-      experience: "10 лет опыта",
+      name: "Elena Sidorova",
+      specialization: "Esthéticienne",
+      experience: "10 ans d’expérience",
       image: (
         <Image
           src="/Img/master-default-image.png"
-          alt="Елена Сидорова"
+          alt="Elena Sidorova"
           width={396}
           height={500}
         />
@@ -49,13 +49,13 @@ const MastersPage = () => {
     },
     {
       id: 4,
-      name: "Ольга Николаева",
-      specialization: "Мастер маникюра",
-      experience: "5 лет опыта",
+      name: "Olga Nikolaeva",
+      specialization: "Prothésiste ongulaire",
+      experience: "5 ans d’expérience",
       image: (
         <Image
           src="/Img/master-default-image.png"
-          alt="Ольга Николаева"
+          alt="Olga Nikolaeva"
           width={396}
           height={500}
         />
@@ -63,13 +63,13 @@ const MastersPage = () => {
     },
     {
       id: 5,
-      name: "Ирина Кузнецова",
-      specialization: "Массажист",
-      experience: "7 лет опыта",
+      name: "Irina Kouznetsova",
+      specialization: "Massothérapeute",
+      experience: "7 ans d’expérience",
       image: (
         <Image
           src="/Img/master-default-image.png"
-          alt="Ирина Кузнецова"
+          alt="Irina Kouznetsova"
           width={396}
           height={500}
         />
@@ -77,9 +77,9 @@ const MastersPage = () => {
     },
     {
       id: 6,
-      name: "Светлана Федорова",
-      specialization: "SPA-терапевт",
-      experience: "9 лет опыта",
+      name: "Svetlana Fedorova",
+      specialization: "Thérapeute SPA",
+      experience: "9 ans d’expérience",
       // Без image - будет использована дефолтная картинка
     },
   ];
@@ -87,7 +87,7 @@ const MastersPage = () => {
   return (
     <main className="masters-page">
       <div className="container">
-        <h1>Наши мастера</h1>
+        <h1>Nos maîtres</h1>
         <div className="masters-page__list">
           {masters.map((master) => (
             <MasterCard

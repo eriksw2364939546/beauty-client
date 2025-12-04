@@ -52,7 +52,10 @@ export default function ProductsPage({ products = [] }) {
             {products.length} produit{products.length !== 1 ? "s" : ""}
           </p>
         </div>
-        <Link href="/beauty-admin/products/new" className="btn btn--primary">
+        <Link
+          href="/beauty-admin/products-admin/new"
+          className="btn btn--primary"
+        >
           <span className="material-icons">add</span>
           Nouveau produit
         </Link>
@@ -77,7 +80,7 @@ export default function ProductsPage({ products = [] }) {
               Aucun produit pour le moment
             </p>
             <Link
-              href="/beauty-admin/products/new"
+              href="/beauty-admin/products-admin/new"
               className="btn btn--primary"
             >
               Ajouter un produit
@@ -133,7 +136,9 @@ export default function ProductsPage({ products = [] }) {
                     <td>
                       <div className="admin-page__table-actions">
                         <Link
-                          href={`/beauty-admin/products/${getId(product)}/edit`}
+                          href={`/beauty-admin/products-admin/${getId(
+                            product
+                          )}/edit`}
                           className="btn btn--ghost btn--sm"
                           title="Modifier"
                         >

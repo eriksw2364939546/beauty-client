@@ -22,7 +22,7 @@ export default function MasterNewPage() {
   // При успехе — редирект на список
   useEffect(() => {
     if (state.success) {
-      router.push("/beauty-admin/masters");
+      router.push("/beauty-admin/masters-admin");
     }
   }, [state.success, router]);
 
@@ -47,7 +47,7 @@ export default function MasterNewPage() {
           <h1 className="admin-page__title">Nouveau professionnel</h1>
           <p className="admin-page__subtitle">Ajouter un membre de l'équipe</p>
         </div>
-        <Link href="/beauty-admin/masters" className="btn btn--secondary">
+        <Link href="/beauty-admin/masters-admin" className="btn btn--secondary">
           <span className="material-icons">arrow_back</span>
           Retour
         </Link>
@@ -148,7 +148,10 @@ export default function MasterNewPage() {
                 </>
               )}
             </button>
-            <Link href="/beauty-admin/masters" className="btn btn--secondary">
+            <Link
+              href="/beauty-admin/masters-admin"
+              className="btn btn--secondary"
+            >
               Annuler
             </Link>
           </div>

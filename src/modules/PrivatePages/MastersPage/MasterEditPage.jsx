@@ -18,8 +18,11 @@ export default function MasterEditPage({ master }) {
   const router = useRouter();
   const [preview, setPreview] = useState(null);
 
+  // Получаем id (поддержка _id и id)
+  const masterId = master._id || master.id;
+
   // Bind id к action
-  const updateMasterWithId = updateMaster.bind(null, master._id);
+  const updateMasterWithId = updateMaster.bind(null, masterId);
 
   const [state, formAction, isPending] = useActionState(updateMasterWithId, {
     success: false,
@@ -29,7 +32,7 @@ export default function MasterEditPage({ master }) {
   // При успехе — редирект на список
   useEffect(() => {
     if (state.success) {
-      router.push("/beauty-admin/masters");
+      router.push("/beauty-admin/masters-admin");
     }
   }, [state.success, router]);
 
@@ -54,7 +57,7 @@ export default function MasterEditPage({ master }) {
           <h1 className="admin-page__title">Modifier le professionnel</h1>
           <p className="admin-page__subtitle">{master.fullName}</p>
         </div>
-        <Link href="/beauty-admin/masters" className="btn btn--secondary">
+        <Link href="/beauty-admin/masters-admin" className="btn btn--secondary">
           <span className="material-icons">arrow_back</span>
           Retour
         </Link>
@@ -174,7 +177,10 @@ export default function MasterEditPage({ master }) {
                 </>
               )}
             </button>
-            <Link href="/beauty-admin/masters" className="btn btn--secondary">
+            <Link
+              href="/beauty-admin/masters-admin"
+              className="btn btn--secondary"
+            >
               Annuler
             </Link>
           </div>

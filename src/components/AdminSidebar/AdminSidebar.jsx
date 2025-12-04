@@ -33,32 +33,32 @@ export default function AdminSidebar({ user }) {
       exact: true,
     },
     {
-      href: "/beauty-admin/categories",
+      href: "/beauty-admin/categories-admin",
       label: "Catégories",
       icon: Folder,
     },
     {
-      href: "/beauty-admin/services",
+      href: "/beauty-admin/services-admin",
       label: "Services",
       icon: Scissors, // Используем Scissors вместо Spa
     },
     {
-      href: "/beauty-admin/works",
+      href: "/beauty-admin/works-admin",
       label: "Réalisations",
       icon: Images,
     },
     {
-      href: "/beauty-admin/masters",
+      href: "/beauty-admin/masters-admin",
       label: "Professionnels",
       icon: Users,
     },
     {
-      href: "/beauty-admin/products",
+      href: "/beauty-admin/products-admin",
       label: "Produits",
       icon: Package,
     },
     {
-      href: "/beauty-admin/prices",
+      href: "/beauty-admin/prices-admin",
       label: "Tarifs",
       icon: Euro,
     },

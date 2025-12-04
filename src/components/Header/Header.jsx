@@ -49,13 +49,13 @@ const Header = () => {
           >
             <div className="header-nav__elems">
               <Link href="/" onClick={closeMenu}>
-                Главная
+                Accueil
               </Link>
               <Link href="/masters" onClick={closeMenu}>
-                Мастера
+                Maîtres
               </Link>
               <Link href="/products" onClick={closeMenu}>
-                Косметика
+                Cosmétique
               </Link>
             </div>
 
@@ -73,13 +73,13 @@ const Header = () => {
 
             <div className="header-nav__elems">
               <Link href="/prices" onClick={closeMenu}>
-                Цены
+                Prix
               </Link>
               <Link href="#" onClick={closeMenu}>
-                Отзывы
+                Avis
               </Link>
               <Link href="/contacts" onClick={closeMenu}>
-                Контакты
+                Contacts
               </Link>
             </div>
           </nav>
@@ -88,7 +88,7 @@ const Header = () => {
           <button
             className={`burger-menu ${isMenuOpen ? "burger-menu--active" : ""}`}
             onClick={toggleMenu}
-            aria-label="Открыть меню"
+            aria-label="Ouvrir le menu"
           >
             <span></span>
             <span></span>

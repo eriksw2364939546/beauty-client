@@ -104,7 +104,7 @@ class CategoriesService {
         const { data } = await this.getAll({ section, limit: 100 }, options);
 
         return data.map(category => ({
-            value: category._id,
+            value: category._id || category.id,
             label: category.title,
         }));
     }

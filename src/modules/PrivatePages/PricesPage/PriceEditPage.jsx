@@ -16,8 +16,11 @@ import "./PriceFormPage.scss";
 export default function PriceEditPage({ price, services }) {
   const router = useRouter();
 
+  // Получаем id (поддержка _id и id)
+  const priceId = price._id || price.id;
+
   // Bind id к action
-  const updatePriceWithId = updatePrice.bind(null, price._id);
+  const updatePriceWithId = updatePrice.bind(null, priceId);
 
   const [state, formAction, isPending] = useActionState(updatePriceWithId, {
     success: false,
@@ -27,7 +30,7 @@ export default function PriceEditPage({ price, services }) {
   // При успехе — редирект на список
   useEffect(() => {
     if (state.success) {
-      router.push("/beauty-admin/prices");
+      router.push("/beauty-admin/prices-admin");
     }
   }, [state.success, router]);
 
@@ -39,7 +42,7 @@ export default function PriceEditPage({ price, services }) {
           <h1 className="admin-page__title">Modifier le tarif</h1>
           <p className="admin-page__subtitle">{price.title}</p>
         </div>
-        <Link href="/beauty-admin/prices" className="btn btn--secondary">
+        <Link href="/beauty-admin/prices-admin" className="btn btn--secondary">
           <span className="material-icons">arrow_back</span>
           Retour
         </Link>
@@ -150,7 +153,10 @@ export default function PriceEditPage({ price, services }) {
                 </>
               )}
             </button>
-            <Link href="/beauty-admin/prices" className="btn btn--secondary">
+            <Link
+              href="/beauty-admin/prices-admin"
+              className="btn btn--secondary"
+            >
               Annuler
             </Link>
           </div>

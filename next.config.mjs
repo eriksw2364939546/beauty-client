@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Настройка изображений
   images: {
     remotePatterns: [
       {
@@ -9,18 +8,18 @@ const nextConfig = {
         port: '12000',
         pathname: '/uploads/**',
       },
-      {
-        protocol: 'https',
-        hostname: 'localhost',
-        port: '12000',
-        pathname: '/uploads/**',
-      },
     ],
+    unoptimized: process.env.NODE_ENV === 'development',
   },
 
-  // SCSS
   sassOptions: {
     silenceDeprecations: ['legacy-js-api'],
+  },
+
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '5mb',
+    },
   },
 };
 

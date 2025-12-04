@@ -20,8 +20,11 @@ export default function ProductEditPage({ product, categories, brands }) {
   const router = useRouter();
   const [preview, setPreview] = useState(null);
 
+  // Получаем id (поддержка _id и id)
+  const productId = product._id || product.id;
+
   // Bind id к action
-  const updateProductWithId = updateProduct.bind(null, product._id);
+  const updateProductWithId = updateProduct.bind(null, productId);
 
   const [state, formAction, isPending] = useActionState(updateProductWithId, {
     success: false,
@@ -31,7 +34,7 @@ export default function ProductEditPage({ product, categories, brands }) {
   // При успехе — редирект на список
   useEffect(() => {
     if (state.success) {
-      router.push("/beauty-admin/products");
+      router.push("/beauty-admin/products-admin");
     }
   }, [state.success, router]);
 
@@ -56,7 +59,10 @@ export default function ProductEditPage({ product, categories, brands }) {
           <h1 className="admin-page__title">Modifier le produit</h1>
           <p className="admin-page__subtitle">{product.title}</p>
         </div>
-        <Link href="/beauty-admin/products" className="btn btn--secondary">
+        <Link
+          href="/beauty-admin/products-admin"
+          className="btn btn--secondary"
+        >
           <span className="material-icons">arrow_back</span>
           Retour
         </Link>
@@ -266,7 +272,10 @@ export default function ProductEditPage({ product, categories, brands }) {
                 </>
               )}
             </button>
-            <Link href="/beauty-admin/products" className="btn btn--secondary">
+            <Link
+              href="/beauty-admin/products-admin"
+              className="btn btn--secondary"
+            >
               Annuler
             </Link>
           </div>

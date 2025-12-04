@@ -25,7 +25,7 @@ export default function WorkNewPage({ services }) {
   // При успехе — редирект на список
   useEffect(() => {
     if (state.success) {
-      router.push("/beauty-admin/works");
+      router.push("/beauty-admin/works-admin");
     }
   }, [state.success, router]);
 
@@ -50,7 +50,7 @@ export default function WorkNewPage({ services }) {
           <h1 className="admin-page__title">Nouvelle réalisation</h1>
           <p className="admin-page__subtitle">Ajouter une photo au portfolio</p>
         </div>
-        <Link href="/beauty-admin/works" className="btn btn--secondary">
+        <Link href="/beauty-admin/works-admin" className="btn btn--secondary">
           <span className="material-icons">arrow_back</span>
           Retour
         </Link>
@@ -144,7 +144,10 @@ export default function WorkNewPage({ services }) {
                 </>
               )}
             </button>
-            <Link href="/beauty-admin/works" className="btn btn--secondary">
+            <Link
+              href="/beauty-admin/works-admin"
+              className="btn btn--secondary"
+            >
               Annuler
             </Link>
           </div>

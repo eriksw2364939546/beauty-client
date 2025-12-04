@@ -20,21 +20,21 @@ const Footer = () => {
           </div>
 
           <div className="footer__items">
-            <h3>Контакты</h3>
+            <h3>Contacts</h3>
 
             <p>+7 (812) 123-45-67</p>
             <p>+7 (812) 123-45-67</p>
-            <p>Новоостровский проспект, дом 36 лит. С</p>
+            <p>Prospekt Novoostrovski, bâtiment 36 lit. C</p>
           </div>
 
           <div className="footer__items">
-            <h3>Режим работы</h3>
-            <p>C 10:00 до 21:00 (Пн-Пт)</p>
-            <p>С 11:00 до 20:00 (Сб-Вс)</p>
+            <h3>Heures d'ouverture</h3>
+            <p>De 10:00 à 21:00 (Lun–Ven)</p>
+            <p>De 11:00 à 20:00 (Sam–Dim)</p>
           </div>
 
           <div className="footer__items">
-            <h3>Мы в Instagram</h3>
+            <h3>Nous sur Instagram</h3>
             <Image
               alt="Logo"
               src="/icon/logo.svg"

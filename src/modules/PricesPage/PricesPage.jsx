@@ -9,12 +9,12 @@ const PricesPage = () => {
   const [activeCategory, setActiveCategory] = useState("hairdressing");
 
   const categories = [
-    { id: "hairdressing", label: "Парикмахерские услуги" },
-    { id: "nails", label: "Маникюр и педикюр" },
-    { id: "cosmetology", label: "Косметология" },
-    { id: "makeup", label: "Макияж" },
-    { id: "massage", label: "Массаж" },
-    { id: "spa", label: "SPA-процедуры" },
+    { id: "hairdressing", label: "Services de coiffure" },
+    { id: "nails", label: "Manucure et pédicure" },
+    { id: "cosmetology", label: "Cosmétologie" },
+    { id: "makeup", label: "Maquillage" },
+    { id: "massage", label: "Massage" },
+    { id: "spa", label: "Soins SPA" },
   ];
 
   const handleCategoryChange = (categoryId) => {
@@ -27,7 +27,7 @@ const PricesPage = () => {
       <div className="prices-hero__image">
         <Image
           src="/Img/pricesPageImage.jpg"
-          alt="Цены на услуги салона красоты"
+          alt="Tarifs des services du salon de beauté"
           width={1920}
           height={600}
           className="prices-hero__image"
@@ -37,8 +37,8 @@ const PricesPage = () => {
 
       <div className="container">
         <div className="prices-hero__content">
-          <h1>Цены на услуги</h1>
-          <p>Качественные услуги по доступным ценам</p>
+          <h1>Tarifs des services</h1>
+          <p>Services de qualité à des prix abordables</p>
         </div>
         {/* Фильтры по категориям */}
         <ServiceFilters

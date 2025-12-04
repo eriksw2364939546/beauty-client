@@ -52,7 +52,7 @@ export default function WorksPage({ works = [] }) {
             {works.length} réalisation{works.length !== 1 ? "s" : ""}
           </p>
         </div>
-        <Link href="/beauty-admin/works/new" className="btn btn--primary">
+        <Link href="/beauty-admin/works-admin/new" className="btn btn--primary">
           <span className="material-icons">add</span>
           Nouvelle réalisation
         </Link>
@@ -76,7 +76,10 @@ export default function WorksPage({ works = [] }) {
             <p className="admin-page__empty-text">
               Aucune réalisation pour le moment
             </p>
-            <Link href="/beauty-admin/works/new" className="btn btn--primary">
+            <Link
+              href="/beauty-admin/works-admin/new"
+              className="btn btn--primary"
+            >
               Ajouter une réalisation
             </Link>
           </div>

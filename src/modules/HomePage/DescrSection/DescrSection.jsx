@@ -7,7 +7,7 @@ const DescrSection = () => {
       <div className="container">
         <div className="descr-section__icon-wrapper">
           <Image
-            alt="Icon"
+            alt="Icône"
             src="/icon/descr-section-icon.svg"
             width={80}
             height={80}
@@ -16,10 +16,11 @@ const DescrSection = () => {
         </div>
 
         <h2>
-          Откройте для себя мир безупречной красоты в салоне «Delote-Beauty» на
-          Крестовском. Наши мастера с многолетним опытом создадут для вас
-          неповторимый образ, подчеркивающий вашу индивидуальность. Позвольте
-          себе быть неотразимой — ваше преображение начинается здесь и сейчас!
+          Découvrez un univers de beauté impeccable au salon « Delote-Beauty »
+          sur l’île Krestovski. Nos spécialistes, forts de nombreuses années
+          d’expérience, créeront pour vous un style unique qui mettra en valeur
+          votre individualité. Offrez-vous l’excellence — votre transformation
+          commence ici et maintenant !
         </h2>
       </div>
     </section>

@@ -25,7 +25,7 @@ export default function ServiceNewPage({ categories }) {
   // При успехе — редирект на список
   useEffect(() => {
     if (state.success) {
-      router.push("/beauty-admin/services");
+      router.push("/beauty-admin/services-admin");
     }
   }, [state.success, router]);
 
@@ -50,7 +50,10 @@ export default function ServiceNewPage({ categories }) {
           <h1 className="admin-page__title">Nouveau service</h1>
           <p className="admin-page__subtitle">Créer un nouveau service</p>
         </div>
-        <Link href="/beauty-admin/services" className="btn btn--secondary">
+        <Link
+          href="/beauty-admin/services-admin"
+          className="btn btn--secondary"
+        >
           <span className="material-icons">arrow_back</span>
           Retour
         </Link>
@@ -175,7 +178,10 @@ export default function ServiceNewPage({ categories }) {
                 </>
               )}
             </button>
-            <Link href="/beauty-admin/services" className="btn btn--secondary">
+            <Link
+              href="/beauty-admin/services-admin"
+              className="btn btn--secondary"
+            >
               Annuler
             </Link>
           </div>

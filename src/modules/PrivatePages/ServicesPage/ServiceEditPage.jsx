@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { updateService } from "@/actions/service.actions";
 import { getImageUrl } from "@/lib/utils";
-import { ArrowLeft, AlertCircle, Save } from "lucide-react";
 import "./ServiceFormPage.scss";
 
 /**
@@ -20,8 +19,11 @@ export default function ServiceEditPage({ service, categories }) {
   const router = useRouter();
   const [preview, setPreview] = useState(null);
 
+  // Получаем id (поддержка _id и id)
+  const serviceId = service._id || service.id;
+
   // Bind id к action
-  const updateServiceWithId = updateService.bind(null, service._id);
+  const updateServiceWithId = updateService.bind(null, serviceId);
 
   const [state, formAction, isPending] = useActionState(updateServiceWithId, {
     success: false,
@@ -31,7 +33,7 @@ export default function ServiceEditPage({ service, categories }) {
   // При успехе — редирект на список
   useEffect(() => {
     if (state.success) {
-      router.push("/beauty-admin/services");
+      router.push("/beauty-admin/services-admin");
     }
   }, [state.success, router]);
 
@@ -56,8 +58,11 @@ export default function ServiceEditPage({ service, categories }) {
           <h1 className="admin-page__title">Modifier le service</h1>
           <p className="admin-page__subtitle">{service.title}</p>
         </div>
-        <Link href="/beauty-admin/services" className="btn btn--secondary">
-          <ArrowLeft size={18} />
+        <Link
+          href="/beauty-admin/services-admin"
+          className="btn btn--secondary"
+        >
+          <span className="material-icons">arrow_back</span>
           Retour
         </Link>
       </div>
@@ -68,7 +73,7 @@ export default function ServiceEditPage({ service, categories }) {
           {/* Error */}
           {state.error && (
             <div className="alert alert--error">
-              <AlertCircle size={20} />
+              <span className="material-icons">error</span>
               <span>{state.error}</span>
             </div>
           )}
@@ -208,12 +213,15 @@ export default function ServiceEditPage({ service, categories }) {
                 </>
               ) : (
                 <>
-                  <Save size={18} />
+                  <span className="material-icons">save</span>
                   Enregistrer
                 </>
               )}
             </button>
-            <Link href="/beauty-admin/services" className="btn btn--secondary">
+            <Link
+              href="/beauty-admin/services-admin"
+              className="btn btn--secondary"
+            >
               Annuler
             </Link>
           </div>

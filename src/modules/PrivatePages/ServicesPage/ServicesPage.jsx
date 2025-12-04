@@ -62,7 +62,10 @@ export default function ServicesPage({ services = [] }) {
             {services.length} service{services.length !== 1 ? "s" : ""}
           </p>
         </div>
-        <Link href="/beauty-admin/services/new" className="btn btn--primary">
+        <Link
+          href="/beauty-admin/services-admin/new"
+          className="btn btn--primary"
+        >
           <Plus size={18} />
           Nouveau service
         </Link>
@@ -85,7 +88,7 @@ export default function ServicesPage({ services = [] }) {
               Aucun service pour le moment
             </p>
             <Link
-              href="/beauty-admin/services/new"
+              href="/beauty-admin/services-admin/new"
               className="btn btn--primary"
             >
               Créer un service
@@ -135,7 +138,9 @@ export default function ServicesPage({ services = [] }) {
                     <td>
                       <div className="admin-page__table-actions">
                         <Link
-                          href={`/beauty-admin/services/${getId(service)}/edit`}
+                          href={`/beauty-admin/services-admin/${getId(
+                            service
+                          )}/edit`}
                           className="btn btn--ghost btn--sm"
                           title="Modifier"
                         >

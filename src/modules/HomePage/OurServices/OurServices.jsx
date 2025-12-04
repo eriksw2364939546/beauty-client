@@ -7,11 +7,11 @@ const OurServices = () => {
   const services = [
     {
       id: 1,
-      title: "Парикмахерские услуги",
+      title: "Services de coiffure",
       image: (
         <Image
           src="/Img/service-default-image.png"
-          alt="Парикмахерские услуги"
+          alt="Services de coiffure"
           width={300}
           height={250}
         />
@@ -19,11 +19,11 @@ const OurServices = () => {
     },
     {
       id: 2,
-      title: "Маникюр и педикюр",
+      title: "Manucure et pédicure",
       image: (
         <Image
           src="/Img/service-default-image.png"
-          alt="Маникюр и педикюр"
+          alt="Manucure et pédicure"
           width={300}
           height={250}
         />
@@ -31,11 +31,11 @@ const OurServices = () => {
     },
     {
       id: 3,
-      title: "Косметология",
+      title: "Cosmétologie",
       image: (
         <Image
           src="/Img/service-default-image.png"
-          alt="Косметология"
+          alt="Cosmétologie"
           width={300}
           height={250}
         />
@@ -43,11 +43,11 @@ const OurServices = () => {
     },
     {
       id: 4,
-      title: "Макияж",
+      title: "Maquillage",
       image: (
         <Image
           src="/Img/service-default-image.png"
-          alt="Макияж"
+          alt="Maquillage"
           width={300}
           height={250}
         />
@@ -55,11 +55,11 @@ const OurServices = () => {
     },
     {
       id: 5,
-      title: "Массаж",
+      title: "Massage",
       image: (
         <Image
           src="/Img/service-default-image.png"
-          alt="Массаж"
+          alt="Massage"
           width={300}
           height={250}
         />
@@ -67,7 +67,7 @@ const OurServices = () => {
     },
     {
       id: 6,
-      title: "SPA-процедуры",
+      title: "Soins SPA",
       // Без image - будет использована дефолтная картинка
     },
   ];
@@ -75,7 +75,7 @@ const OurServices = () => {
   return (
     <section className="our-services">
       <div className="container">
-        <h2>Наши услуги</h2>
+        <h2>Nos services</h2>
         <div className="our-services__list">
           {services.map((service) => (
             <ServiceCard

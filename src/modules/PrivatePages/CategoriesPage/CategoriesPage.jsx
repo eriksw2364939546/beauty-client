@@ -66,7 +66,10 @@ export default function CategoriesPage({ categories = [] }) {
             {categories.length} catégorie{categories.length !== 1 ? "s" : ""}
           </p>
         </div>
-        <Link href="/beauty-admin/categories/new" className="btn btn--primary">
+        <Link
+          href="/beauty-admin/categories-admin/new"
+          className="btn btn--primary"
+        >
           <span className="material-icons">add</span>
           Nouvelle catégorie
         </Link>
@@ -91,7 +94,7 @@ export default function CategoriesPage({ categories = [] }) {
               Aucune catégorie pour le moment
             </p>
             <Link
-              href="/beauty-admin/categories/new"
+              href="/beauty-admin/categories-admin/new"
               className="btn btn--primary"
             >
               Créer une catégorie
@@ -137,7 +140,7 @@ export default function CategoriesPage({ categories = [] }) {
                     <td>
                       <div className="admin-page__table-actions">
                         <Link
-                          href={`/beauty-admin/categories/${getId(
+                          href={`/beauty-admin/categories-admin/${getId(
                             category
                           )}/edit`}
                           className="btn btn--ghost btn--sm"
