@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { updateService } from "@/actions/service.actions";
 import { getImageUrl } from "@/lib/utils";
+import { ArrowLeft, AlertCircle, Save } from "lucide-react";
 import "./ServiceFormPage.scss";
 
 /**
@@ -56,7 +57,7 @@ export default function ServiceEditPage({ service, categories }) {
           <p className="admin-page__subtitle">{service.title}</p>
         </div>
         <Link href="/beauty-admin/services" className="btn btn--secondary">
-          <span className="material-icons">arrow_back</span>
+          <ArrowLeft size={18} />
           Retour
         </Link>
       </div>
@@ -67,7 +68,7 @@ export default function ServiceEditPage({ service, categories }) {
           {/* Error */}
           {state.error && (
             <div className="alert alert--error">
-              <span className="material-icons">error</span>
+              <AlertCircle size={20} />
               <span>{state.error}</span>
             </div>
           )}
@@ -207,7 +208,7 @@ export default function ServiceEditPage({ service, categories }) {
                 </>
               ) : (
                 <>
-                  <span className="material-icons">save</span>
+                  <Save size={18} />
                   Enregistrer
                 </>
               )}

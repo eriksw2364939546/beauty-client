@@ -12,9 +12,14 @@ import "./PricesPage.scss";
  * @param {object} props
  * @param {array} props.prices - массив расценок
  */
-export default function PricesPage({ prices }) {
+export default function PricesPage({ prices = [] }) {
   const [deletingId, setDeletingId] = useState(null);
   const [error, setError] = useState(null);
+
+  /**
+   * Получить ID (поддержка _id и id)
+   */
+  const getId = (item) => item._id || item.id;
 
   /**
    * Удалить расценку
@@ -86,7 +91,7 @@ export default function PricesPage({ prices }) {
               </thead>
               <tbody>
                 {prices.map((price) => (
-                  <tr key={price._id}>
+                  <tr key={getId(price)}>
                     <td>
                       <span className="prices-page__title">{price.title}</span>
                     </td>
@@ -104,7 +109,7 @@ export default function PricesPage({ prices }) {
                     <td>
                       <div className="admin-page__table-actions">
                         <Link
-                          href={`/beauty-admin/prices/${price._id}/edit`}
+                          href={`/beauty-admin/prices/${getId(price)}/edit`}
                           className="btn btn--ghost btn--sm"
                           title="Modifier"
                         >
@@ -113,12 +118,14 @@ export default function PricesPage({ prices }) {
                         <button
                           type="button"
                           className="btn btn--danger btn--sm"
-                          onClick={() => handleDelete(price._id, price.title)}
-                          disabled={deletingId === price._id}
+                          onClick={() =>
+                            handleDelete(getId(price), price.title)
+                          }
+                          disabled={deletingId === getId(price)}
                           title="Supprimer"
                         >
                           <span className="material-icons">
-                            {deletingId === price._id
+                            {deletingId === getId(price)
                               ? "hourglass_empty"
                               : "delete"}
                           </span>

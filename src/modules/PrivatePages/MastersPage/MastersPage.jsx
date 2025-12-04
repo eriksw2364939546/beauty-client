@@ -13,9 +13,14 @@ import "./MastersPage.scss";
  * @param {object} props
  * @param {array} props.masters - массив мастеров
  */
-export default function MastersPage({ masters }) {
+export default function MastersPage({ masters = [] }) {
   const [deletingId, setDeletingId] = useState(null);
   const [error, setError] = useState(null);
+
+  /**
+   * Получить ID (поддержка _id и id)
+   */
+  const getId = (item) => item._id || item.id;
 
   /**
    * Удалить мастера
@@ -90,7 +95,7 @@ export default function MastersPage({ masters }) {
               </thead>
               <tbody>
                 {masters.map((master) => (
-                  <tr key={master._id}>
+                  <tr key={getId(master)}>
                     <td>
                       <Image
                         src={getImageUrl(master.image)}
@@ -113,7 +118,7 @@ export default function MastersPage({ masters }) {
                     <td>
                       <div className="admin-page__table-actions">
                         <Link
-                          href={`/beauty-admin/masters/${master._id}/edit`}
+                          href={`/beauty-admin/masters/${getId(master)}/edit`}
                           className="btn btn--ghost btn--sm"
                           title="Modifier"
                         >
@@ -123,13 +128,13 @@ export default function MastersPage({ masters }) {
                           type="button"
                           className="btn btn--danger btn--sm"
                           onClick={() =>
-                            handleDelete(master._id, master.fullName)
+                            handleDelete(getId(master), master.fullName)
                           }
-                          disabled={deletingId === master._id}
+                          disabled={deletingId === getId(master)}
                           title="Supprimer"
                         >
                           <span className="material-icons">
-                            {deletingId === master._id
+                            {deletingId === getId(master)
                               ? "hourglass_empty"
                               : "delete"}
                           </span>

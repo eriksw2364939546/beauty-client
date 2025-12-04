@@ -5,6 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { deleteService } from "@/actions/service.actions";
 import { getImageUrl } from "@/lib/utils";
+import {
+  Plus,
+  AlertCircle,
+  Scissors,
+  Edit,
+  Trash2,
+  Hourglass,
+} from "lucide-react";
 import "./ServicesPage.scss";
 
 /**
@@ -13,9 +21,14 @@ import "./ServicesPage.scss";
  * @param {object} props
  * @param {array} props.services - массив услуг
  */
-export default function ServicesPage({ services }) {
+export default function ServicesPage({ services = [] }) {
   const [deletingId, setDeletingId] = useState(null);
   const [error, setError] = useState(null);
+
+  /**
+   * Получить ID (поддержка _id и id)
+   */
+  const getId = (item) => item._id || item.id;
 
   /**
    * Удалить услугу
@@ -50,7 +63,7 @@ export default function ServicesPage({ services }) {
           </p>
         </div>
         <Link href="/beauty-admin/services/new" className="btn btn--primary">
-          <span className="material-icons">add</span>
+          <Plus size={18} />
           Nouveau service
         </Link>
       </div>
@@ -58,7 +71,7 @@ export default function ServicesPage({ services }) {
       {/* Error Alert */}
       {error && (
         <div className="alert alert--error">
-          <span className="material-icons">error</span>
+          <AlertCircle size={20} />
           <span>{error}</span>
         </div>
       )}
@@ -67,7 +80,7 @@ export default function ServicesPage({ services }) {
       <div className="admin-page__card">
         {services.length === 0 ? (
           <div className="admin-page__empty">
-            <span className="material-icons admin-page__empty-icon">spa</span>
+            <Scissors className="admin-page__empty-icon" size={48} />
             <p className="admin-page__empty-text">
               Aucun service pour le moment
             </p>
@@ -94,7 +107,7 @@ export default function ServicesPage({ services }) {
               </thead>
               <tbody>
                 {services.map((service) => (
-                  <tr key={service._id}>
+                  <tr key={getId(service)}>
                     <td>
                       <Image
                         src={getImageUrl(service.image)}
@@ -122,26 +135,26 @@ export default function ServicesPage({ services }) {
                     <td>
                       <div className="admin-page__table-actions">
                         <Link
-                          href={`/beauty-admin/services/${service._id}/edit`}
+                          href={`/beauty-admin/services/${getId(service)}/edit`}
                           className="btn btn--ghost btn--sm"
                           title="Modifier"
                         >
-                          <span className="material-icons">edit</span>
+                          <Edit size={16} />
                         </Link>
                         <button
                           type="button"
                           className="btn btn--danger btn--sm"
                           onClick={() =>
-                            handleDelete(service._id, service.title)
+                            handleDelete(getId(service), service.title)
                           }
-                          disabled={deletingId === service._id}
+                          disabled={deletingId === getId(service)}
                           title="Supprimer"
                         >
-                          <span className="material-icons">
-                            {deletingId === service._id
-                              ? "hourglass_empty"
-                              : "delete"}
-                          </span>
+                          {deletingId === getId(service) ? (
+                            <Hourglass size={16} />
+                          ) : (
+                            <Trash2 size={16} />
+                          )}
                         </button>
                       </div>
                     </td>

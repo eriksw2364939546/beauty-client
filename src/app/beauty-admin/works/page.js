@@ -11,7 +11,7 @@ export const metadata = {
 
 export default async function Page() {
     const { data: works } = await WorksService.getAll(
-        { limit: 100 },
+        { limit: 50 },
         { cache: 'no-store' }
     );
 

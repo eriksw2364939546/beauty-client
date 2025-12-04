@@ -25,10 +25,12 @@ class CategoriesService {
         const query = createQueryString(params);
         const endpoint = query ? `/categories?${query}` : '/categories';
 
-        const response = await api(endpoint, {
-            next: { revalidate: 300 },
-            ...options,
-        });
+        // Если передан cache: 'no-store', не добавляем revalidate
+        const fetchOptions = options.cache === 'no-store'
+            ? options
+            : { next: { revalidate: 300 }, ...options };
+
+        const response = await api(endpoint, fetchOptions);
 
         return {
             data: response.data,

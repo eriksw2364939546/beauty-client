@@ -13,9 +13,14 @@ import "./WorksPage.scss";
  * @param {object} props
  * @param {array} props.works - массив работ
  */
-export default function WorksPage({ works }) {
+export default function WorksPage({ works = [] }) {
   const [deletingId, setDeletingId] = useState(null);
   const [error, setError] = useState(null);
+
+  /**
+   * Получить ID (поддержка _id и id)
+   */
+  const getId = (item) => item._id || item.id;
 
   /**
    * Удалить работу
@@ -78,7 +83,7 @@ export default function WorksPage({ works }) {
         ) : (
           <div className="works-page__grid">
             {works.map((work) => (
-              <div key={work._id} className="works-page__card">
+              <div key={getId(work)} className="works-page__card">
                 <div className="works-page__card-image">
                   <Image
                     src={getImageUrl(work.image)}
@@ -100,12 +105,14 @@ export default function WorksPage({ works }) {
                   <button
                     type="button"
                     className="btn btn--danger btn--sm"
-                    onClick={() => handleDelete(work._id)}
-                    disabled={deletingId === work._id}
+                    onClick={() => handleDelete(getId(work))}
+                    disabled={deletingId === getId(work)}
                     title="Supprimer"
                   >
                     <span className="material-icons">
-                      {deletingId === work._id ? "hourglass_empty" : "delete"}
+                      {deletingId === getId(work)
+                        ? "hourglass_empty"
+                        : "delete"}
                     </span>
                     Supprimer
                   </button>

@@ -2,7 +2,7 @@
 // API Client для Server Components и Server Actions
 // ═══════════════════════════════════════════════════════════════════════════
 
-const API_URL = process.env.API_URL
+const API_URL = process.env.API_URL;
 
 /**
  * Класс ошибки API

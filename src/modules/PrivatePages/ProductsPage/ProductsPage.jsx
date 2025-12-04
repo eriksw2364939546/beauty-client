@@ -13,9 +13,14 @@ import "./ProductsPage.scss";
  * @param {object} props
  * @param {array} props.products - массив товаров
  */
-export default function ProductsPage({ products }) {
+export default function ProductsPage({ products = [] }) {
   const [deletingId, setDeletingId] = useState(null);
   const [error, setError] = useState(null);
+
+  /**
+   * Получить ID (поддержка _id и id)
+   */
+  const getId = (item) => item._id || item.id;
 
   /**
    * Удалить товар
@@ -95,7 +100,7 @@ export default function ProductsPage({ products }) {
               </thead>
               <tbody>
                 {products.map((product) => (
-                  <tr key={product._id}>
+                  <tr key={getId(product)}>
                     <td>
                       <Image
                         src={getImageUrl(product.image)}
@@ -128,7 +133,7 @@ export default function ProductsPage({ products }) {
                     <td>
                       <div className="admin-page__table-actions">
                         <Link
-                          href={`/beauty-admin/products/${product._id}/edit`}
+                          href={`/beauty-admin/products/${getId(product)}/edit`}
                           className="btn btn--ghost btn--sm"
                           title="Modifier"
                         >
@@ -138,13 +143,13 @@ export default function ProductsPage({ products }) {
                           type="button"
                           className="btn btn--danger btn--sm"
                           onClick={() =>
-                            handleDelete(product._id, product.title)
+                            handleDelete(getId(product), product.title)
                           }
-                          disabled={deletingId === product._id}
+                          disabled={deletingId === getId(product)}
                           title="Supprimer"
                         >
                           <span className="material-icons">
-                            {deletingId === product._id
+                            {deletingId === getId(product)
                               ? "hourglass_empty"
                               : "delete"}
                           </span>

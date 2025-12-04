@@ -25,10 +25,12 @@ class WorksService {
         const query = createQueryString(params);
         const endpoint = query ? `/works?${query}` : '/works';
 
-        const response = await api(endpoint, {
-            next: { revalidate: 60 },
-            ...options,
-        });
+        // Если передан cache: 'no-store', не добавляем revalidate
+        const fetchOptions = options.cache === 'no-store'
+            ? options
+            : { next: { revalidate: 60 }, ...options };
+
+        const response = await api(endpoint, fetchOptions);
 
         return {
             data: response.data,

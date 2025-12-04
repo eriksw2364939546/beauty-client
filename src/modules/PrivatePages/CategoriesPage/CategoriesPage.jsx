@@ -5,14 +5,6 @@ import Link from "next/link";
 import { deleteCategory } from "@/actions/category.actions";
 import { SECTION_NAMES } from "@/lib/utils";
 import "./CategoriesPage.scss";
-import {
-  Plus,
-  Folder, // Заменили FolderOff на Folder
-  AlertCircle,
-  Edit,
-  Trash2,
-  Hourglass,
-} from "lucide-react";
 
 /**
  * Страница списка категорий
@@ -75,7 +67,7 @@ export default function CategoriesPage({ categories = [] }) {
           </p>
         </div>
         <Link href="/beauty-admin/categories/new" className="btn btn--primary">
-          <Plus size={18} />
+          <span className="material-icons">add</span>
           Nouvelle catégorie
         </Link>
       </div>
@@ -83,7 +75,7 @@ export default function CategoriesPage({ categories = [] }) {
       {/* Error Alert */}
       {error && (
         <div className="alert alert--error">
-          <AlertCircle size={20} />
+          <span className="material-icons">error</span>
           <span>{error}</span>
         </div>
       )}
@@ -92,7 +84,9 @@ export default function CategoriesPage({ categories = [] }) {
       <div className="admin-page__card">
         {categories.length === 0 ? (
           <div className="admin-page__empty">
-            <Folder className="admin-page__empty-icon" size={48} />
+            <span className="material-icons admin-page__empty-icon">
+              folder_off
+            </span>
             <p className="admin-page__empty-text">
               Aucune catégorie pour le moment
             </p>
@@ -149,7 +143,7 @@ export default function CategoriesPage({ categories = [] }) {
                           className="btn btn--ghost btn--sm"
                           title="Modifier"
                         >
-                          <Edit size={16} />
+                          <span className="material-icons">edit</span>
                         </Link>
                         <button
                           type="button"
@@ -160,11 +154,11 @@ export default function CategoriesPage({ categories = [] }) {
                           disabled={deletingId === getId(category)}
                           title="Supprimer"
                         >
-                          {deletingId === getId(category) ? (
-                            <Hourglass size={16} />
-                          ) : (
-                            <Trash2 size={16} />
-                          )}
+                          <span className="material-icons">
+                            {deletingId === getId(category)
+                              ? "hourglass_empty"
+                              : "delete"}
+                          </span>
                         </button>
                       </div>
                     </td>
