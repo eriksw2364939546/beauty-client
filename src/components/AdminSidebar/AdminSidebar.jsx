@@ -3,6 +3,17 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { logout } from "@/actions/auth.actions";
+import {
+  LayoutDashboard,
+  Folder,
+  Scissors, // Заменил Spa на Scissors или можно использовать Wand2
+  Images,
+  Users,
+  Package,
+  Euro,
+  UserCircle,
+  LogOut,
+} from "lucide-react";
 import "./AdminSidebar.scss";
 
 /**
@@ -18,38 +29,38 @@ export default function AdminSidebar({ user }) {
     {
       href: "/beauty-admin",
       label: "Tableau de bord",
-      icon: "dashboard",
+      icon: LayoutDashboard,
       exact: true,
     },
     {
       href: "/beauty-admin/categories",
       label: "Catégories",
-      icon: "folder",
+      icon: Folder,
     },
     {
       href: "/beauty-admin/services",
       label: "Services",
-      icon: "spa",
+      icon: Scissors, // Используем Scissors вместо Spa
     },
     {
       href: "/beauty-admin/works",
       label: "Réalisations",
-      icon: "photo_library",
+      icon: Images,
     },
     {
       href: "/beauty-admin/masters",
       label: "Professionnels",
-      icon: "people",
+      icon: Users,
     },
     {
       href: "/beauty-admin/products",
       label: "Produits",
-      icon: "inventory_2",
+      icon: Package,
     },
     {
       href: "/beauty-admin/prices",
       label: "Tarifs",
-      icon: "euro",
+      icon: Euro,
     },
   ];
 
@@ -75,23 +86,24 @@ export default function AdminSidebar({ user }) {
       {/* Навигация */}
       <nav className="admin-sidebar__nav">
         <ul className="admin-sidebar__menu">
-          {menuItems.map((item) => (
-            <li key={item.href} className="admin-sidebar__menu-item">
-              <Link
-                href={item.href}
-                className={`admin-sidebar__link ${
-                  isActive(item.href, item.exact)
-                    ? "admin-sidebar__link--active"
-                    : ""
-                }`}
-              >
-                <span className="material-icons admin-sidebar__icon">
-                  {item.icon}
-                </span>
-                <span className="admin-sidebar__label">{item.label}</span>
-              </Link>
-            </li>
-          ))}
+          {menuItems.map((item) => {
+            const IconComponent = item.icon;
+            return (
+              <li key={item.href} className="admin-sidebar__menu-item">
+                <Link
+                  href={item.href}
+                  className={`admin-sidebar__link ${
+                    isActive(item.href, item.exact)
+                      ? "admin-sidebar__link--active"
+                      : ""
+                  }`}
+                >
+                  <IconComponent className="admin-sidebar__icon" size={20} />
+                  <span className="admin-sidebar__label">{item.label}</span>
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
 
@@ -102,16 +114,14 @@ export default function AdminSidebar({ user }) {
       <div className="admin-sidebar__footer">
         {user && (
           <div className="admin-sidebar__user">
-            <span className="material-icons admin-sidebar__user-icon">
-              account_circle
-            </span>
+            <UserCircle className="admin-sidebar__user-icon" size={20} />
             <span className="admin-sidebar__user-email">{user.email}</span>
           </div>
         )}
 
         <form action={logout}>
           <button type="submit" className="admin-sidebar__logout">
-            <span className="material-icons admin-sidebar__icon">logout</span>
+            <LogOut className="admin-sidebar__icon" size={20} />
             <span className="admin-sidebar__label">Déconnexion</span>
           </button>
         </form>

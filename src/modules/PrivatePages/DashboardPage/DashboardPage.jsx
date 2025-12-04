@@ -1,4 +1,13 @@
 import Link from "next/link";
+import {
+  Folder,
+  Scissors,
+  Images,
+  Users,
+  Package,
+  Euro,
+  Plus,
+} from "lucide-react";
 import "./DashboardPage.scss";
 
 /**
@@ -18,42 +27,42 @@ export default function DashboardPage({ stats }) {
     {
       title: "Catégories",
       count: stats.categories,
-      icon: "folder",
+      icon: Folder,
       href: "/beauty-admin/categories",
       color: "blue",
     },
     {
       title: "Services",
       count: stats.services,
-      icon: "spa",
+      icon: Scissors,
       href: "/beauty-admin/services",
       color: "purple",
     },
     {
       title: "Réalisations",
       count: stats.works,
-      icon: "photo_library",
+      icon: Images,
       href: "/beauty-admin/works",
       color: "pink",
     },
     {
       title: "Professionnels",
       count: stats.masters,
-      icon: "people",
+      icon: Users,
       href: "/beauty-admin/masters",
       color: "green",
     },
     {
       title: "Produits",
       count: stats.products,
-      icon: "inventory_2",
+      icon: Package,
       href: "/beauty-admin/products",
       color: "orange",
     },
     {
       title: "Tarifs",
       count: stats.prices,
-      icon: "euro",
+      icon: Euro,
       href: "/beauty-admin/prices",
       color: "teal",
     },
@@ -71,21 +80,24 @@ export default function DashboardPage({ stats }) {
 
       {/* Stats Grid */}
       <div className="dashboard-page__grid">
-        {cards.map((card) => (
-          <Link
-            key={card.href}
-            href={card.href}
-            className={`dashboard-page__card dashboard-page__card--${card.color}`}
-          >
-            <div className="dashboard-page__card-icon">
-              <span className="material-icons">{card.icon}</span>
-            </div>
-            <div className="dashboard-page__card-content">
-              <span className="dashboard-page__card-count">{card.count}</span>
-              <span className="dashboard-page__card-title">{card.title}</span>
-            </div>
-          </Link>
-        ))}
+        {cards.map((card) => {
+          const IconComponent = card.icon;
+          return (
+            <Link
+              key={card.href}
+              href={card.href}
+              className={`dashboard-page__card dashboard-page__card--${card.color}`}
+            >
+              <div className="dashboard-page__card-icon">
+                <IconComponent size={24} />
+              </div>
+              <div className="dashboard-page__card-content">
+                <span className="dashboard-page__card-count">{card.count}</span>
+                <span className="dashboard-page__card-title">{card.title}</span>
+              </div>
+            </Link>
+          );
+        })}
       </div>
 
       {/* Quick Actions */}
@@ -93,19 +105,19 @@ export default function DashboardPage({ stats }) {
         <h2 className="dashboard-page__section-title">Actions rapides</h2>
         <div className="dashboard-page__actions">
           <Link href="/beauty-admin/services/new" className="btn btn--primary">
-            <span className="material-icons">add</span>
+            <Plus size={18} />
             Nouveau service
           </Link>
           <Link href="/beauty-admin/works/new" className="btn btn--primary">
-            <span className="material-icons">add</span>
+            <Plus size={18} />
             Nouvelle réalisation
           </Link>
           <Link href="/beauty-admin/products/new" className="btn btn--primary">
-            <span className="material-icons">add</span>
+            <Plus size={18} />
             Nouveau produit
           </Link>
           <Link href="/beauty-admin/prices/new" className="btn btn--primary">
-            <span className="material-icons">add</span>
+            <Plus size={18} />
             Nouveau tarif
           </Link>
         </div>

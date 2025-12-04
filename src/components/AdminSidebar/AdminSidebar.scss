@@ -13,11 +13,11 @@ $sidebar-border: #27273a;
 
 .admin-sidebar {
     position: sticky;
-    top: 0;
+    top: 130px;
     left: 0;
     width: $sidebar-width;
-    height: 100vh;
-    background-color: $sidebar-bg;
+    height: calc(100vh - 130px);
+    background-color: var(--black);
     display: flex;
     flex-direction: column;
     overflow-y: auto;

@@ -5,6 +5,14 @@ import Link from "next/link";
 import { deleteCategory } from "@/actions/category.actions";
 import { SECTION_NAMES } from "@/lib/utils";
 import "./CategoriesPage.scss";
+import {
+  Plus,
+  Folder, // Заменили FolderOff на Folder
+  AlertCircle,
+  Edit,
+  Trash2,
+  Hourglass,
+} from "lucide-react";
 
 /**
  * Страница списка категорий
@@ -12,7 +20,7 @@ import "./CategoriesPage.scss";
  * @param {object} props
  * @param {array} props.categories - массив категорий
  */
-export default function CategoriesPage({ categories }) {
+export default function CategoriesPage({ categories = [] }) {
   const [deletingId, setDeletingId] = useState(null);
   const [error, setError] = useState(null);
 
@@ -39,6 +47,11 @@ export default function CategoriesPage({ categories }) {
   };
 
   /**
+   * Получить ID категории (поддержка _id и id)
+   */
+  const getId = (item) => item._id || item.id;
+
+  /**
    * Получить badge класс для секции
    */
   const getSectionBadgeClass = (section) => {
@@ -62,7 +75,7 @@ export default function CategoriesPage({ categories }) {
           </p>
         </div>
         <Link href="/beauty-admin/categories/new" className="btn btn--primary">
-          <span className="material-icons">add</span>
+          <Plus size={18} />
           Nouvelle catégorie
         </Link>
       </div>
@@ -70,7 +83,7 @@ export default function CategoriesPage({ categories }) {
       {/* Error Alert */}
       {error && (
         <div className="alert alert--error">
-          <span className="material-icons">error</span>
+          <AlertCircle size={20} />
           <span>{error}</span>
         </div>
       )}
@@ -79,9 +92,7 @@ export default function CategoriesPage({ categories }) {
       <div className="admin-page__card">
         {categories.length === 0 ? (
           <div className="admin-page__empty">
-            <span className="material-icons admin-page__empty-icon">
-              folder_off
-            </span>
+            <Folder className="admin-page__empty-icon" size={48} />
             <p className="admin-page__empty-text">
               Aucune catégorie pour le moment
             </p>
@@ -108,7 +119,7 @@ export default function CategoriesPage({ categories }) {
               </thead>
               <tbody>
                 {categories.map((category) => (
-                  <tr key={category._id}>
+                  <tr key={getId(category)}>
                     <td>
                       <span className="categories-page__title">
                         {category.title}
@@ -132,26 +143,28 @@ export default function CategoriesPage({ categories }) {
                     <td>
                       <div className="admin-page__table-actions">
                         <Link
-                          href={`/beauty-admin/categories/${category._id}/edit`}
+                          href={`/beauty-admin/categories/${getId(
+                            category
+                          )}/edit`}
                           className="btn btn--ghost btn--sm"
                           title="Modifier"
                         >
-                          <span className="material-icons">edit</span>
+                          <Edit size={16} />
                         </Link>
                         <button
                           type="button"
                           className="btn btn--danger btn--sm"
                           onClick={() =>
-                            handleDelete(category._id, category.title)
+                            handleDelete(getId(category), category.title)
                           }
-                          disabled={deletingId === category._id}
+                          disabled={deletingId === getId(category)}
                           title="Supprimer"
                         >
-                          <span className="material-icons">
-                            {deletingId === category._id
-                              ? "hourglass_empty"
-                              : "delete"}
-                          </span>
+                          {deletingId === getId(category) ? (
+                            <Hourglass size={16} />
+                          ) : (
+                            <Trash2 size={16} />
+                          )}
                         </button>
                       </div>
                     </td>

@@ -3,7 +3,6 @@
 // ═══════════════════════════════════════════════════════════════════════════
 
 import { headers } from 'next/headers';
-import { redirect } from 'next/navigation';
 import AuthService from '@/services/auth.service';
 import AdminSidebar from '@/components/AdminSidebar/AdminSidebar';
 import './admin.scss';
@@ -21,24 +20,20 @@ export const metadata = {
 };
 
 export default async function AdminLayout({ children }) {
-    // Получаем текущий путь
+    // Получаем текущий путь из headers (установлен в middleware)
     const headersList = await headers();
     const pathname = headersList.get('x-pathname') || '';
 
-    // Для страницы логина — не показываем sidebar и не проверяем авторизацию
+    // Для страницы логина — только children без sidebar
     const isLoginPage = pathname.includes('/login');
 
     if (isLoginPage) {
         return <>{children}</>;
     }
 
-    // Проверяем авторизацию на сервере
-    const { valid, user } = await AuthService.verifyToken();
-
-    // Если не авторизован — редирект на логин
-    if (!valid) {
-        redirect('/beauty-admin/login');
-    }
+    // Для остальных страниц — middleware уже проверил токен
+    // Здесь просто получаем данные юзера для sidebar
+    const { user } = await AuthService.verifyToken();
 
     return (
         <div className="admin-layout">

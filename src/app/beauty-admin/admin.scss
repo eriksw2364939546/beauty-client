@@ -10,7 +10,8 @@ $sidebar-width-collapsed: 72px;
 .admin-layout {
     display: flex;
     min-height: 100vh;
-    background-color: $admin-bg;
+    background-color: var(--background);
+    // padding-top: 100px;
 
     // ─────────────────────────────────────────────────────────────────────────
     // Main Content
@@ -20,7 +21,9 @@ $sidebar-width-collapsed: 72px;
         min-width: 0; // Для корректного overflow
         margin-left: 0;
         padding: 24px;
+
         overflow-x: auto;
+        padding-top: 150px;
     }
 
     &__content {
@@ -243,14 +246,13 @@ $sidebar-width-collapsed: 72px;
 // ═══════════════════════════════════════════════════════════════════════════
 
 .btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
     padding: 10px 18px;
     font-size: 14px;
     font-weight: 500;
-    border-radius: 8px;
     border: none;
     cursor: pointer;
     text-decoration: none;
@@ -264,11 +266,13 @@ $sidebar-width-collapsed: 72px;
 
     // Primary (золотой)
     &--primary {
-        background-color: #c9a86c;
+        // background-color: #c9a86c;
+        border: 1px solid var(--white);
         color: #fff;
 
         &:hover:not(:disabled) {
-            background-color: #b8954f;
+            background-color: var(--white);
+            color: black;
         }
     }
 
