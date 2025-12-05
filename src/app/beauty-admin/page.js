@@ -19,7 +19,6 @@ export const metadata = {
  */
 async function getStats() {
     try {
-        // Параллельно загружаем все данные
         const [
             categoriesRes,
             servicesRes,
@@ -28,12 +27,12 @@ async function getStats() {
             productsRes,
             pricesRes,
         ] = await Promise.all([
-            CategoriesService.getAll({ limit: 1 }),
-            ServicesService.getAll({ limit: 1 }),
-            WorksService.getAll({ limit: 1 }),
-            MastersService.getAll({ limit: 1 }),
-            ProductsService.getAll({ limit: 1 }),
-            PricesService.getAll({ limit: 1 }),
+            CategoriesService.getAll({ limit: 1 }, { cache: 'no-store' }),
+            ServicesService.getAll({ limit: 1 }, { cache: 'no-store' }),
+            WorksService.getAll({ limit: 1 }, { cache: 'no-store' }),
+            MastersService.getAll({ limit: 1 }, { cache: 'no-store' }),
+            ProductsService.getAll({ limit: 1 }, { cache: 'no-store' }),
+            PricesService.getAll({ limit: 1 }, { cache: 'no-store' }),
         ]);
 
         return {

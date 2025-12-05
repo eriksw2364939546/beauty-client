@@ -29,9 +29,9 @@ async function getToken() {
  * Ревалидировать все связанные пути
  */
 function revalidateServices() {
-    revalidatePath('/beauty-admin/services');
-    revalidatePath('/beauty-admin/works');
-    revalidatePath('/beauty-admin/prices');
+    revalidatePath('/beauty-admin/services-admin');
+    revalidatePath('/beauty-admin/works-admin');
+    revalidatePath('/beauty-admin/prices-admin');
     // Публичные страницы
     revalidatePath('/');
     revalidatePath('/services');

@@ -15,12 +15,12 @@ import "./DashboardPage.scss";
  *
  * @param {object} props
  * @param {object} props.stats - статистика
- * @param {number} props.stats.categories - количество категорий
- * @param {number} props.stats.services - количество услуг
- * @param {number} props.stats.works - количество работ
- * @param {number} props.stats.masters - количество мастеров
- * @param {number} props.stats.products - количество товаров
- * @param {number} props.stats.prices - количество расценок
+ * @param {number} props.stats.categories-admin - количество категорий
+ * @param {number} props.stats.services-admin - количество услуг
+ * @param {number} props.stats.works-admin - количество работ
+ * @param {number} props.stats.masters-admin - количество мастеров
+ * @param {number} props.stats.products-admin - количество товаров
+ * @param {number} props.stats.prices-admin - количество расценок
  */
 export default function DashboardPage({ stats }) {
   const cards = [

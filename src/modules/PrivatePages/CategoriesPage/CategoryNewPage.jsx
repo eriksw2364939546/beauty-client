@@ -27,7 +27,6 @@ export default function CategoryNewPage() {
 
   const sections = [
     { value: "service", label: SECTION_NAMES.service },
-    { value: "work", label: SECTION_NAMES.work },
     { value: "price", label: SECTION_NAMES.price },
     { value: "product", label: SECTION_NAMES.product },
   ];

@@ -19,6 +19,7 @@ import "./ProductFormPage.scss";
 export default function ProductEditPage({ product, categories, brands }) {
   const router = useRouter();
   const [preview, setPreview] = useState(null);
+  const [priceValue, setPriceValue] = useState(product.price?.toString() || "");
 
   // Получаем id (поддержка _id и id)
   const productId = product._id || product.id;
@@ -51,6 +52,55 @@ export default function ProductEditPage({ product, categories, brands }) {
     }
   };
 
+  /**
+   * Кастомный обработчик формы
+   */
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Удаляем поле image, если оно пустое
+    const imageFile = formData.get("image");
+    if (!imageFile || imageFile.size === 0) {
+      formData.delete("image");
+    }
+
+    // Обработка цены - фиксим проблему с плавающей точкой
+    const price = formData.get("price");
+    if (price) {
+      // Конвертируем строку в число и фиксим до 2 знаков после запятой
+      const fixedPrice = parseFloat(price).toFixed(2);
+      formData.set("price", fixedPrice);
+    }
+
+    // Вызываем action
+    formAction(formData);
+  };
+
+  /**
+   * Обработчик изменения цены
+   */
+  const handlePriceChange = (e) => {
+    const value = e.target.value;
+    setPriceValue(value);
+  };
+
+  /**
+   * Форматирование цены при потере фокуса
+   */
+  const handlePriceBlur = (e) => {
+    const value = e.target.value;
+    if (value) {
+      const numValue = parseFloat(value);
+      if (!isNaN(numValue)) {
+        const formatted = numValue.toFixed(2);
+        setPriceValue(formatted);
+        e.target.value = formatted;
+      }
+    }
+  };
+
   return (
     <div className="product-form-page">
       {/* Header */}
@@ -70,7 +120,7 @@ export default function ProductEditPage({ product, categories, brands }) {
 
       {/* Form */}
       <div className="admin-page__card">
-        <form action={formAction} className="admin-page__form">
+        <form onSubmit={handleSubmit} className="admin-page__form">
           {/* Error */}
           {state.error && (
             <div className="alert alert--error">
@@ -152,7 +202,7 @@ export default function ProductEditPage({ product, categories, brands }) {
             />
           </div>
 
-          {/* Price */}
+          {/* Price - с фиксом проблемы плавающей точки */}
           <div className="admin-page__form-group">
             <label htmlFor="price" className="admin-page__form-label">
               Prix (€) *
@@ -166,8 +216,13 @@ export default function ProductEditPage({ product, categories, brands }) {
               required
               min="0.01"
               step="0.01"
-              defaultValue={product.price}
+              value={priceValue}
+              onChange={handlePriceChange}
+              onBlur={handlePriceBlur}
             />
+            <span className="admin-page__form-hint">
+              Utilisez un point comme séparateur décimal (ex: 15.99)
+            </span>
           </div>
 
           {/* Category */}

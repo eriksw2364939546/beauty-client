@@ -6,12 +6,13 @@ import { logout } from "@/actions/auth.actions";
 import {
   LayoutDashboard,
   Folder,
-  Scissors, // Заменил Spa на Scissors или можно использовать Wand2
+  Scissors,
   Images,
   Users,
   Package,
   Euro,
   UserCircle,
+  Settings, // Добавлена иконка настроек
   LogOut,
 } from "lucide-react";
 import "./AdminSidebar.scss";
@@ -40,7 +41,7 @@ export default function AdminSidebar({ user }) {
     {
       href: "/beauty-admin/services-admin",
       label: "Services",
-      icon: Scissors, // Используем Scissors вместо Spa
+      icon: Scissors,
     },
     {
       href: "/beauty-admin/works-admin",
@@ -118,6 +119,19 @@ export default function AdminSidebar({ user }) {
             <span className="admin-sidebar__user-email">{user.email}</span>
           </div>
         )}
+
+        {/* Настройки - добавленная секция */}
+        <Link
+          href="/beauty-admin/settings"
+          className={`admin-sidebar__link admin-sidebar__link--settings ${
+            isActive("/beauty-admin/settings")
+              ? "admin-sidebar__link--active"
+              : ""
+          }`}
+        >
+          <Settings className="admin-sidebar__icon" size={20} />
+          <span className="admin-sidebar__label">Paramètres</span>
+        </Link>
 
         <form action={logout}>
           <button type="submit" className="admin-sidebar__logout">

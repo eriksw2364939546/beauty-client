@@ -72,14 +72,13 @@ class CategoriesService {
      * Получить категории сгруппированные по секциям
      * 
      * @param {object} [options] - опции fetch
-     * @returns {Promise<object>} - { service: [...], work: [...], price: [...], product: [...] }
+     * @returns {Promise<object>} 
      */
     async getGrouped(options = {}) {
         const { data } = await this.getAll({ limit: 100 }, options);
 
         const grouped = {
             service: [],
-            work: [],
             price: [],
             product: [],
         };

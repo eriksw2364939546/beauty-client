@@ -29,14 +29,14 @@ async function getToken() {
  * Ревалидировать все связанные пути
  */
 function revalidateCategories() {
-    revalidatePath('/beauty-admin/categories');
-    revalidatePath('/beauty-admin/services');
-    revalidatePath('/beauty-admin/works');
-    revalidatePath('/beauty-admin/products');
-    revalidatePath('/beauty-admin/prices');
+    revalidatePath('/beauty-admin/categories-admin');
+    revalidatePath('/beauty-admin/services-admin');
+    // revalidatePath('/beauty-admin/works-admin');
+    revalidatePath('/beauty-admin/products-admin');
+    revalidatePath('/beauty-admin/prices-admin');
     // Публичные страницы
     revalidatePath('/services');
-    revalidatePath('/works');
+    // revalidatePath('/works');
     revalidatePath('/products');
     revalidatePath('/prices');
 }
@@ -68,7 +68,7 @@ export async function createCategory(prevState, formData) {
         };
     }
 
-    if (!['service', 'work', 'price', 'product'].includes(body.section)) {
+    if (!['service', 'price', 'product'].includes(body.section)) {
         return {
             success: false,
             error: 'Section invalide',

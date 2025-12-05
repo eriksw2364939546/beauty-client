@@ -8,7 +8,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
 const API_URL = process.env.API_URL;
-const COOKIE_NAME = process.env.COOKIE_NAME;
+const COOKIE_NAME = process.env.COOKIE_NAME || 'admin_token';
 const COOKIE_MAX_AGE = parseInt(process.env.COOKIE_MAX_AGE) || 604800;
 
 /**
@@ -121,27 +121,51 @@ export async function updateProfile(prevState, formData) {
         redirect('/beauty-admin/login');
     }
 
-    const email = formData.get('email');
     const currentPassword = formData.get('currentPassword');
+    const newEmail = formData.get('newEmail');
     const newPassword = formData.get('newPassword');
+    const confirmPassword = formData.get('confirmPassword');
 
-    // Формируем body — отправляем только заполненные поля
-    const body = {};
-
-    if (email) {
-        body.email = email;
-    }
-
-    if (currentPassword && newPassword) {
-        body.currentPassword = currentPassword;
-        body.newPassword = newPassword;
-    }
-
-    if (Object.keys(body).length === 0) {
+    // Валидация
+    if (!currentPassword) {
         return {
             success: false,
-            error: 'Aucune modification à enregistrer', // Нет изменений для сохранения
+            error: 'Le mot de passe actuel est requis',
         };
+    }
+
+    if (!newEmail && !newPassword) {
+        return {
+            success: false,
+            error: 'Veuillez saisir un nouvel email ou un nouveau mot de passe',
+        };
+    }
+
+    if (newPassword && newPassword !== confirmPassword) {
+        return {
+            success: false,
+            error: 'Les mots de passe ne correspondent pas',
+        };
+    }
+
+    if (newPassword && newPassword.length < 6) {
+        return {
+            success: false,
+            error: 'Le mot de passe doit contenir au moins 6 caractères',
+        };
+    }
+
+    // Формируем body для API
+    const body = {
+        currentPassword,
+    };
+
+    if (newEmail) {
+        body.newEmail = newEmail;
+    }
+
+    if (newPassword) {
+        body.newPassword = newPassword;
     }
 
     try {

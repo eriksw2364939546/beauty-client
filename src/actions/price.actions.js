@@ -29,7 +29,7 @@ async function getToken() {
  * Ревалидировать все связанные пути
  */
 function revalidatePrices() {
-    revalidatePath('/beauty-admin/prices');
+    revalidatePath('/beauty-admin/prices-admin');
     // Публичные страницы
     revalidatePath('/');
     revalidatePath('/prices');

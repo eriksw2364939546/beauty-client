@@ -50,6 +50,24 @@ export default function ServiceEditPage({ service, categories }) {
     }
   };
 
+  /**
+   * Кастомный обработчик формы
+   */
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // Удаляем поле image, если оно пустое
+    const imageFile = formData.get("image");
+    if (!imageFile || imageFile.size === 0) {
+      formData.delete("image");
+    }
+
+    // Вызываем action
+    formAction(formData);
+  };
+
   return (
     <div className="service-form-page">
       {/* Header */}
@@ -69,7 +87,7 @@ export default function ServiceEditPage({ service, categories }) {
 
       {/* Form */}
       <div className="admin-page__card">
-        <form action={formAction} className="admin-page__form">
+        <form onSubmit={handleSubmit} className="admin-page__form">
           {/* Error */}
           {state.error && (
             <div className="alert alert--error">
