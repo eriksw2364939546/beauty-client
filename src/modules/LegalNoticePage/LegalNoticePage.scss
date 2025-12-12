@@ -1,0 +1,42 @@
+main.legal-notice {
+    padding: 150px 0 100px 0;
+
+    h1.legal-notice__title {
+        font-size: 48px !important;
+        color: var(--white);
+        margin-bottom: 50px;
+        text-align: center;
+        font-family: var(--font-cormorant-garamond);
+        font-weight: 700;
+        letter-spacing: 0%;
+    }
+
+    .legal-notice__content {
+        section.legal-notice__section {
+            padding: 40px 0;
+
+            p.legal-notice__section-text {
+                color: var(--white);
+                font-family: var(--font-cormorant-garamond);
+                font-size: 20px;
+                font-weight: 400;
+                line-height: 30px;
+                text-align: center;
+                letter-spacing: 0%;
+                margin-bottom: 10px;
+
+            }
+
+
+            h2.legal-notice__section-title {
+                font-size: 30px !important;
+                color: var(--white);
+                margin-bottom: 50px;
+                text-align: center;
+                font-family: var(--font-cormorant-garamond);
+                font-weight: 700;
+                letter-spacing: 0%;
+            }
+        }
+    }
+}

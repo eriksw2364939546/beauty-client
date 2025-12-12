@@ -1,0 +1,164 @@
+section.hero {
+    position: relative;
+    width: 100%;
+    padding: 0 0;
+
+    .hero-container {
+        width: 100%;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+        padding: 0 15px;
+
+        h1 {
+            color: var(--white);
+            font-family: var(--font-cormorant-garamond);
+            font-size: 72px;
+            font-weight: 700;
+            line-height: 1.2;
+
+            span {
+                font-style: italic;
+            }
+        }
+
+        .hero-subtitle {
+            color: var(--white);
+            font-family: var(--font-cormorant-garamond);
+            font-size: 22px;
+            font-weight: 400;
+            line-height: 30px;
+            text-align: center;
+            letter-spacing: 0%;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+/* Планшеты и маленькие десктопы */
+@media all and (max-width: 1070px) {
+    section.hero {
+        .hero-content {
+            h1 {
+                font-size: 42px;
+                line-height: 1.1;
+            }
+
+            .hero-subtitle {
+                color: var(--white);
+                font-family: var(--font-cormorant-garamond);
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 30px;
+                text-align: center;
+                letter-spacing: 0%;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+/* Планшеты (вертикальная ориентация) */
+@media all and (max-width: 768px) {
+    section.hero {
+        .hero-content {
+            h1 {
+                font-size: 36px;
+                line-height: 1.1;
+
+                br {
+                    display: block; // убеждаемся что переносы работают
+                }
+            }
+        }
+    }
+}
+
+/* Большие мобильные */
+@media all and (max-width: 640px) {
+    section.hero {
+        .hero-content {
+            h1 {
+                font-size: 32px;
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+/* Средние мобильные */
+@media all and (max-width: 480px) {
+    section.hero {
+        .hero-content {
+            h1 {
+                font-size: 28px;
+                line-height: 1.3;
+
+                span {
+                    display: inline-block; // для лучшего контроля
+                }
+            }
+        }
+    }
+}
+
+/* Маленькие мобильные */
+@media all and (max-width: 375px) {
+    section.hero {
+        .hero-content {
+            top: 60%;
+
+            h1 {
+                font-size: 24px;
+                line-height: 1.4;
+            }
+        }
+    }
+}
+
+/* Очень маленькие мобильные */
+@media all and (max-width: 320px) {
+    section.hero {
+        .hero-content {
+            h1 {
+                font-size: 22px;
+                line-height: 1.4;
+            }
+        }
+    }
+}
+
+/* Для очень высоких экранов (опционально) */
+@media all and (min-width: 1921px) {
+    section.hero {
+        .hero-content {
+            h1 {
+                font-size: 56px;
+            }
+        }
+    }
+}
+
+/* Для ландшафтной ориентации на мобильных */
+@media all and (max-height: 500px) and (orientation: landscape) {
+    section.hero {
+        .hero-content {
+            h1 {
+                font-size: 24px;
+                line-height: 1.2;
+            }
+        }
+    }
+}

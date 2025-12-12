@@ -1,0 +1,26 @@
+.about-page {
+    padding: 150px 0 100px 0;
+
+    h1 {
+        font-size: 48px !important;
+        color: var(--white);
+        margin-bottom: 50px;
+        text-align: center;
+        font-family: var(--font-cormorant-garamond);
+        font-weight: 700;
+        letter-spacing: 0%;
+    }
+
+    &__content {
+        p {
+            color: var(--white);
+            font-family: var(--font-cormorant-garamond);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 30px;
+            text-align: center;
+            letter-spacing: 0%;
+            margin-bottom: 10px;
+        }
+    }
+}

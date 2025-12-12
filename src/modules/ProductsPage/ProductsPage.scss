@@ -1,0 +1,132 @@
+.products-page {
+    padding-bottom: 100px;
+
+    .products-hero {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        margin-bottom: 60px;
+        overflow: hidden;
+
+        &__image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+
+
+        }
+
+        &__content {
+            text-align: center;
+            padding: 50px 0px 40px 0;
+
+
+            h1 {
+                color: var(--white);
+                font-family: var(--font-cormorant-garamond);
+                font-size: 48px;
+                font-weight: 700;
+                margin-bottom: 15px;
+            }
+
+            p {
+                color: var(--white);
+                font-family: var(--font-cormorant-garamond);
+                font-size: 24px;
+                font-weight: 400;
+                opacity: 0.9;
+            }
+        }
+    }
+
+    .products-info {
+        margin: 0px 0px 40px 0px;
+
+        &__total {
+            color: var(--white);
+            font-family: var(--font-cormorant-garamond);
+            font-size: 18px;
+            text-align: center;
+
+            span {
+                color: rgba(205, 170, 125, 1);
+                font-weight: 600;
+            }
+        }
+    }
+
+}
+
+/* Адаптив для главной страницы */
+@media all and (max-width: 768px) {
+    .products-page {
+        .products-hero {
+            &__image {
+                height: 300px;
+                margin-bottom: 40px;
+            }
+
+            &__content {
+                margin-bottom: 30px;
+
+                h1 {
+                    font-size: 36px;
+                }
+
+                p {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .products-info {
+            margin-bottom: 30px;
+
+            &__total {
+                font-size: 16px;
+            }
+        }
+
+        .products-page__list {
+            margin-bottom: 40px;
+        }
+
+        .container {
+            padding-bottom: 60px;
+        }
+    }
+}
+
+@media all and (max-width: 480px) {
+    .products-page {
+        .products-hero {
+            &__image {
+                height: 250px;
+                margin-bottom: 30px;
+            }
+
+            &__content {
+                h1 {
+                    font-size: 32px;
+                }
+
+                p {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .products-info {
+            margin-bottom: 25px;
+
+            &__total {
+                font-size: 15px;
+            }
+        }
+
+        .container {
+            padding-bottom: 50px;
+        }
+    }
+}

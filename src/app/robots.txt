@@ -1,0 +1,20 @@
+# Robots.txt для Delote-Beauty Marseille
+
+# Разрешаем всем поисковикам индексировать сайт
+User-agent: *
+Allow: /
+
+# Запрещаем индексацию админки (если есть)
+Disallow: /beauty-admin/
+Disallow: /api/
+
+# Карта сайта
+Sitemap: https://delote-beauty.fr/sitemap.xml
+
+# Специфичные правила для Google
+User-agent: Googlebot
+Allow: /
+
+# Для изображений
+User-agent: Googlebot-Image
+Allow: /

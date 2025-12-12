@@ -1,0 +1,315 @@
+// ═══════════════════════════════════════════════════════════════════════════
+// Products Page Styles - АДАПТИВНАЯ ВЕРСИЯ С MIN-WIDTH
+// ═══════════════════════════════════════════════════════════════════════════
+
+.products-page {
+    width: 100%;
+    overflow-x: hidden;
+
+    &__title {
+        font-weight: 600;
+        color: var(--white);
+        word-break: break-word;
+    }
+
+    &__code {
+        font-size: 13px;
+        padding: 4px 8px;
+        border: 0.5px solid var(--colorForBorderCard);
+        background-color: var(--background);
+        color: var(--white);
+        font-family: 'Courier New', monospace;
+        display: inline-block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__price {
+        font-weight: 600;
+        color: var(--white);
+        white-space: nowrap;
+    }
+}
+
+
+
+// ═══════════════════════════════════════════════════════════════════════════
+// СПЕЦИФИЧНЫЕ MIN-WIDTH ДЛЯ ТАБЛИЦЫ ТОВАРОВ
+// ═══════════════════════════════════════════════════════════════════════════
+
+.products-page .admin-page__table {
+
+    // Специфичные min-width для страницы товаров
+    // Колонка 1: Изображение (80px)
+    th:nth-child(1),
+    td:nth-child(1) {
+        min-width: 80px;
+        width: 80px;
+    }
+
+    // Колонка 2: Название товара (180px)
+    th:nth-child(2),
+    td:nth-child(2) {
+        min-width: 180px;
+    }
+
+    // Колонка 3: Бренд (120px)
+    th:nth-child(3),
+    td:nth-child(3) {
+        min-width: 120px;
+    }
+
+    // Колонка 4: Код (100px)
+    th:nth-child(4),
+    td:nth-child(4) {
+        min-width: 100px;
+    }
+
+    // Колонка 5: Цена (100px)
+    th:nth-child(5),
+    td:nth-child(5) {
+        min-width: 100px;
+    }
+
+    // Колонка 6: Действия (120px)
+    th:nth-child(6),
+    td:nth-child(6) {
+        min-width: 120px;
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// RESPONSIVE ДЛЯ СТРАНИЦЫ ТОВАРОВ
+// ═══════════════════════════════════════════════════════════════════════════
+
+@media all and (max-width: 1024px) {
+    .products-page {
+        &__title {
+            font-size: 14px;
+        }
+
+        &__code {
+            font-size: 12px;
+            padding: 3px 6px;
+        }
+
+        &__price {
+            font-size: 14px;
+        }
+
+        // Адаптивные min-width для планшетов
+        .admin-page__table {
+
+            th:nth-child(1),
+            td:nth-child(1) {
+                min-width: 70px;
+                width: 70px;
+            }
+
+            th:nth-child(2),
+            td:nth-child(2) {
+                min-width: 150px;
+            }
+
+            th:nth-child(3),
+            td:nth-child(3) {
+                min-width: 100px;
+            }
+
+            th:nth-child(4),
+            td:nth-child(4) {
+                min-width: 90px;
+            }
+
+            th:nth-child(5),
+            td:nth-child(5) {
+                min-width: 90px;
+            }
+
+            th:nth-child(6),
+            td:nth-child(6) {
+                min-width: 100px;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    .products-page {
+        &__title {
+            font-size: 13px;
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &__code {
+            font-size: 11px;
+            padding: 2px 4px;
+            max-width: 80px;
+        }
+
+        &__price {
+            font-size: 13px;
+        }
+
+        // Адаптивные min-width для мобильных
+        .admin-page__table {
+
+            th:nth-child(1),
+            td:nth-child(1) {
+                min-width: 60px;
+                width: 60px;
+            }
+
+            th:nth-child(2),
+            td:nth-child(2) {
+                min-width: 120px;
+            }
+
+            th:nth-child(3),
+            td:nth-child(3) {
+                min-width: 90px;
+            }
+
+            th:nth-child(4),
+            td:nth-child(4) {
+                min-width: 80px;
+            }
+
+            th:nth-child(5),
+            td:nth-child(5) {
+                min-width: 80px;
+            }
+
+            th:nth-child(6),
+            td:nth-child(6) {
+                min-width: 90px;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 480px) {
+    .products-page {
+        &__title {
+            font-size: 12px;
+            max-width: 120px;
+        }
+
+        &__code {
+            font-size: 10px;
+            max-width: 70px;
+        }
+
+        &__price {
+            font-size: 12px;
+        }
+
+        // Адаптивные min-width для маленьких телефонов
+        .admin-page__table {
+
+            th:nth-child(1),
+            td:nth-child(1) {
+                min-width: 50px;
+                width: 50px;
+            }
+
+            th:nth-child(2),
+            td:nth-child(2) {
+                min-width: 110px;
+            }
+
+            th:nth-child(3),
+            td:nth-child(3) {
+                min-width: 80px;
+            }
+
+            th:nth-child(4),
+            td:nth-child(4) {
+                min-width: 70px;
+            }
+
+            th:nth-child(5),
+            td:nth-child(5) {
+                min-width: 70px;
+            }
+
+            th:nth-child(6),
+            td:nth-child(6) {
+                min-width: 80px;
+            }
+        }
+    }
+}
+
+// Очень маленькие телефоны (320px и меньше)
+@media all and (max-width: 320px) {
+    .products-page {
+        &__title {
+            font-size: 11px;
+            max-width: 100px;
+        }
+
+        &__code {
+            font-size: 9px;
+            max-width: fit-content;
+        }
+
+        &__price {
+            font-size: 11px;
+        }
+
+        .admin-page__table {
+
+            th:nth-child(1),
+            td:nth-child(1) {
+                min-width: 45px;
+                width: 45px;
+            }
+
+            th:nth-child(2),
+            td:nth-child(2) {
+                min-width: 100px;
+            }
+
+            th:nth-child(3),
+            td:nth-child(3) {
+                min-width: 70px;
+            }
+
+            th:nth-child(4),
+            td:nth-child(4) {
+                min-width: 65px;
+            }
+
+            th:nth-child(5),
+            td:nth-child(5) {
+                min-width: 65px;
+            }
+
+            th:nth-child(6),
+            td:nth-child(6) {
+                min-width: 70px;
+            }
+        }
+    }
+}
+
+// Стиль для спиннера в кнопке удаления
+.products-page .admin-page__table-actions .spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

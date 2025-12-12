@@ -1,0 +1,252 @@
+// ═══════════════════════════════════════════════════════════════════════════
+// Admin Sidebar Styles
+// ═══════════════════════════════════════════════════════════════════════════
+
+$sidebar-width: 220px; // Уменьшено с 260px
+$sidebar-bg: #1a1a2e;
+$sidebar-text: #e4e4e7;
+$sidebar-text-muted: #a1a1aa;
+$sidebar-hover: #16162a;
+$sidebar-active: #c9a86c;
+$sidebar-active-bg: rgba(201, 168, 108, 0.1);
+$sidebar-border: #27273a;
+
+.admin-sidebar {
+    position: sticky;
+    top: 130px;
+    left: 0;
+    width: $sidebar-width;
+    height: calc(100vh - 130px);
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 100;
+
+    // Скроллбар
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $sidebar-border;
+        border-radius: 2px;
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // Логотип
+    // ─────────────────────────────────────────────────────────────────────────
+    &__logo {
+        padding: 24px 20px;
+        border-bottom: 1px solid $sidebar-border;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    &__logo-text {
+        font-size: 20px;
+        font-weight: 700;
+        color: $sidebar-active;
+        letter-spacing: 0.5px;
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // Навигация
+    // ─────────────────────────────────────────────────────────────────────────
+    &__nav {
+        flex: 1;
+        padding: 16px 0;
+    }
+
+    &__menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__menu-item {
+        margin: 0;
+        padding: 0;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 20px;
+        color: $sidebar-text-muted;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border-left: 3px solid transparent;
+
+        &:hover {
+            background-color: $sidebar-hover;
+            color: $sidebar-text;
+        }
+
+        &--active {
+            color: $sidebar-active;
+            background-color: $sidebar-active-bg;
+            border-left-color: $sidebar-active;
+
+            .admin-sidebar__icon {
+                color: $sidebar-active;
+            }
+        }
+    }
+
+    &__icon {
+        font-size: 20px;
+        color: $sidebar-text-muted;
+        transition: color 0.2s ease;
+    }
+
+    &__label {
+        white-space: nowrap;
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // Разделитель
+    // ─────────────────────────────────────────────────────────────────────────
+    &__divider {
+        height: 1px;
+        background-color: $sidebar-border;
+        margin: 8px 20px;
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // Футер (пользователь + выход)
+    // ─────────────────────────────────────────────────────────────────────────
+    &__footer {
+        padding: 16px 0;
+        border-top: 1px solid $sidebar-border;
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 20px;
+        color: $sidebar-text-muted;
+        font-size: 13px;
+    }
+
+    &__user-icon {
+        font-size: 24px;
+        color: $sidebar-text-muted;
+    }
+
+    &__user-email {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__logout {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 12px 20px;
+        background: none;
+        border: none;
+        border-left: 3px solid transparent;
+        color: $sidebar-text-muted;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-align: left;
+
+        &:hover {
+            background-color: $sidebar-hover;
+            color: #ef4444;
+
+            .admin-sidebar__icon {
+                color: #ef4444;
+            }
+        }
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// RESPONSIVE - АДАПТИВ ДЛЯ САЙДБАРА
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Планшеты (768-1024px) - Сворачиваем в иконки
+@media all and (max-width: 1024px) {
+    .admin-sidebar {
+        width: 64px; // Уменьшено с 72px
+
+        &__logo-text,
+        &__label,
+        &__user-email {
+            display: none;
+        }
+
+        &__logo {
+            padding: 18px 14px; // Уменьшены отступы
+            text-align: center;
+        }
+
+        &__link,
+        &__logout {
+            justify-content: center;
+            padding: 12px 14px; // Уменьшены отступы
+            border-left-width: 0;
+            border-top: 3px solid transparent;
+
+            &--active {
+                border-left-width: 0;
+                border-top-color: $sidebar-active;
+            }
+        }
+
+        &__user {
+            justify-content: center;
+            padding: 12px 14px; // Уменьшены отступы
+        }
+
+        &__icon,
+        &__user-icon {
+            font-size: 22px; // Уменьшены иконки
+            margin: 0 auto;
+        }
+
+        &__divider {
+            margin: 6px 14px; // Уменьшены отступы
+        }
+    }
+}
+
+@media all and (max-width: 830px) {
+    .admin-sidebar {
+        top: 100px;
+        left: 0;
+        height: calc(100vh - 100px);
+
+    }
+
+}
+
+@media all and (max-width: 480px) {
+    .admin-sidebar {
+        top: 80px;
+        left: 0;
+        height: calc(100vh - 100px);
+
+    }
+
+}
+
+// Мобильные устройства (<768px) - Оставляем как есть (без изменений)
+// Если нужно скрыть сайдбар на мобильных - нужно будет добавить дополнительные стили

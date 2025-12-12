@@ -1,0 +1,562 @@
+// ═══════════════════════════════════════════════════════════════════════════
+// Login Page Styles
+// ═══════════════════════════════════════════════════════════════════════════
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background);
+    padding: 100px 20px 40px; // 100px сверху для header, 40px снизу для футера
+    box-sizing: border-box;
+
+    .login-page__container {
+        background: black;
+        border: 1px solid var(--colorForBorderCard);
+        max-width: 400px;
+        width: 100%;
+        padding: 40px 20px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        margin: auto;
+
+        .login-page__logo {
+            text-align: center;
+            margin-bottom: 40px;
+
+            .login-page__title {
+                color: var(--colorForBorderCard);
+                font-family: var(--font-cormorant-garamond);
+                font-size: 32px;
+                font-weight: 600;
+                margin-bottom: 8px;
+                letter-spacing: 1px;
+            }
+
+            .login-page__subtitle {
+                color: var(--white);
+                font-family: var(--font-cormorant-garamond);
+                font-size: 18px;
+                opacity: 0.9;
+                font-weight: 400;
+            }
+        }
+
+        .login-page__form {
+            width: 100%;
+
+            .login-page__error {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                padding: 16px;
+                background-color: rgba(220, 38, 38, 0.1);
+                border: 1px solid rgba(220, 38, 38, 0.3);
+                border-radius: 6px;
+                margin-bottom: 24px;
+                color: #fca5a5;
+                font-family: var(--font-cormorant-garamond);
+                font-size: 15px;
+                line-height: 1.5;
+
+                .login-page__error-icon {
+                    color: #f87171;
+                    flex-shrink: 0;
+                    margin-top: 2px;
+                }
+
+                span {
+                    word-break: break-word;
+                    flex: 1;
+                }
+            }
+
+            .login-page__field {
+                position: relative;
+                margin-bottom: 24px;
+
+                .login-page__label {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-family: var(--font-cormorant-garamond);
+                    color: var(--white);
+                    font-size: 16px;
+                    font-weight: 500;
+                    margin-bottom: 8px;
+                    padding-left: 4px;
+
+                    .login-page__input-icon {
+                        color: var(--colorForBorderCard);
+                        opacity: 0.8;
+                        transition: all 0.3s ease;
+                    }
+                }
+
+                .login-page__input {
+                    background: rgba(255, 255, 255, 0.05);
+                    padding: 14px 16px 14px 48px;
+                    width: 100%;
+                    border: 1px solid var(--colorForBorderCard);
+                    font-family: var(--font-cormorant-garamond);
+                    font-size: 16px;
+                    color: var(--white);
+                    border-radius: 6px;
+                    transition: all 0.3s ease;
+
+                    &:focus {
+                        outline: none;
+                        border-color: rgba(255, 255, 255, 0.7);
+                        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+                        background: rgba(255, 255, 255, 0.08);
+                    }
+
+                    &::placeholder {
+                        color: rgba(255, 255, 255, 0.4);
+                        font-family: var(--font-cormorant-garamond);
+                    }
+                }
+
+                &:focus-within {
+                    .login-page__input-icon {
+                        color: rgba(255, 255, 255, 0.9);
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .login-page__button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                background: none;
+                border: 1px solid var(--white);
+                color: var(--white);
+                font-family: var(--font-cormorant-garamond);
+                font-size: 17px;
+                font-weight: 500;
+                padding: 16px 24px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                width: 100%;
+                border-radius: 6px;
+                margin-top: 8px;
+                letter-spacing: 0.5px;
+
+                &:hover:not(:disabled) {
+                    background: var(--white);
+                    color: black;
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+                }
+
+                &:active:not(:disabled) {
+                    transform: translateY(0);
+                }
+
+                &:disabled {
+                    opacity: 0.6;
+                    cursor: not-allowed;
+                }
+
+                .login-page__spinner {
+                    animation: spin 0.8s linear infinite;
+                    color: var(--white);
+                }
+
+                &:disabled .login-page__spinner {
+                    color: rgba(255, 255, 255, 0.6);
+                }
+            }
+        }
+
+        .login-page__copyright {
+            margin-top: 40px;
+            color: var(--white);
+            text-align: center;
+            font-family: var(--font-cormorant-garamond);
+            font-size: 14px;
+            opacity: 0.7;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// Для экранов до 830px (когда header становится 60px)
+@media all and (max-width: 1030px) {
+    .login-page {
+        margin-top: 120px;
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Адаптивность с учетом header и футера
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Для экранов до 830px (когда header становится 60px)
+@media all and (max-width: 830px) {
+    .login-page {
+        padding: 60px 20px 30px; // 60px сверху для меньшего header, 30px снизу
+        margin-top: 0px;
+
+        .login-page__container {
+            padding: 32px 24px;
+            border-radius: 6px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+            .login-page__logo {
+                margin-bottom: 32px;
+
+                .login-page__title {
+                    font-size: 28px;
+                    margin-bottom: 6px;
+                }
+
+                .login-page__subtitle {
+                    font-size: 16px;
+                }
+            }
+
+            .login-page__form {
+                .login-page__error {
+                    padding: 14px;
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                    gap: 10px;
+
+                    .login-page__error-icon {
+                        margin-top: 1px;
+                    }
+                }
+
+                .login-page__field {
+                    margin-bottom: 20px;
+
+                    .login-page__label {
+                        font-size: 15px;
+                        gap: 8px;
+                        margin-bottom: 6px;
+
+                        .login-page__input-icon {
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+
+                    .login-page__input {
+                        padding: 13px 16px 13px 44px;
+                        font-size: 15px;
+                    }
+                }
+
+                .login-page__button {
+                    padding: 15px 20px;
+                    font-size: 16px;
+                    gap: 10px;
+
+                    .login-page__spinner {
+                        width: 18px;
+                        height: 18px;
+                    }
+                }
+            }
+
+            .login-page__copyright {
+                margin-top: 32px;
+                font-size: 13px;
+                padding-top: 16px;
+            }
+        }
+    }
+}
+
+// Для очень маленьких экранов (ширина)
+@media all and (max-width: 380px) {
+    .login-page {
+        padding: 60px 16px 20px; // Уменьшаем боковые отступы
+
+        .login-page__container {
+            padding: 28px 20px;
+
+            .login-page__logo {
+                margin-bottom: 28px;
+
+                .login-page__title {
+                    font-size: 26px;
+                }
+
+                .login-page__subtitle {
+                    font-size: 15px;
+                }
+            }
+
+            .login-page__form {
+                .login-page__error {
+                    font-size: 13px;
+                    padding: 12px;
+                    flex-direction: column;
+                    text-align: center;
+                    align-items: center;
+                    gap: 8px;
+
+                    .login-page__error-icon {
+                        margin: 0;
+                    }
+                }
+
+                .login-page__field {
+                    .login-page__label {
+                        font-size: 14px;
+                    }
+
+                    .login-page__input {
+                        padding: 12px 16px 12px 42px;
+                        font-size: 14px;
+                    }
+                }
+
+                .login-page__button {
+                    font-size: 15px;
+                    padding: 14px 16px;
+                    gap: 8px;
+                }
+            }
+
+            .login-page__copyright {
+                font-size: 12px;
+                margin-top: 28px;
+            }
+        }
+    }
+}
+
+// Для экранов меньше 320px
+@media all and (max-width: 320px) {
+    .login-page {
+        padding: 60px 12px 15px; // Еще меньше боковые отступы
+
+        .login-page__container {
+            padding: 24px 16px;
+
+            .login-page__logo {
+                .login-page__title {
+                    font-size: 24px;
+                }
+            }
+
+            .login-page__form {
+                .login-page__error {
+                    padding: 10px;
+                    font-size: 12px;
+                }
+
+                .login-page__button {
+                    padding: 13px 14px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// Адаптивность по высоте экрана
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Для маленькой высоты экрана (альбомная ориентация мобильных)
+@media all and (max-height: 700px) and (min-width: 500px) {
+    .login-page {
+        padding: 100px 20px 20px;
+
+        .login-page__container {
+            padding: 24px 20px;
+            max-width: 350px;
+
+            .login-page__logo {
+                margin-bottom: 24px;
+
+                .login-page__title {
+                    font-size: 26px;
+                    margin-bottom: 4px;
+                }
+
+                .login-page__subtitle {
+                    font-size: 15px;
+                }
+            }
+
+            .login-page__form {
+                .login-page__error {
+                    margin-bottom: 16px;
+                    padding: 12px;
+                }
+
+                .login-page__field {
+                    margin-bottom: 16px;
+
+                    .login-page__input {
+                        padding: 12px 16px 12px 44px;
+                    }
+                }
+
+                .login-page__button {
+                    padding: 14px 20px;
+                    font-size: 16px;
+                }
+
+                .login-page__copyright {
+                    margin-top: 24px;
+                    padding-top: 16px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+// Для очень маленькой высоты экрана
+@media all and (max-height: 600px) {
+    .login-page {
+        align-items: flex-start; // Форма прижимается к верху на очень маленьких экранах
+        overflow-y: auto; // Добавляем прокрутку если нужно
+        padding: 60px 20px 20px;
+
+        .login-page__container {
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+
+            .login-page__logo {
+                margin-bottom: 20px;
+
+                .login-page__title {
+                    font-size: 24px;
+                }
+
+                .login-page__subtitle {
+                    font-size: 14px;
+                }
+            }
+
+            .login-page__form {
+                .login-page__error {
+                    margin-bottom: 16px;
+                    padding: 10px;
+                    font-size: 13px;
+                }
+
+                .login-page__field {
+                    margin-bottom: 16px;
+
+                    .login-page__label {
+                        font-size: 14px;
+                        margin-bottom: 6px;
+                    }
+
+                    .login-page__input {
+                        padding: 10px 16px 10px 42px;
+                        font-size: 14px;
+                    }
+                }
+
+                .login-page__button {
+                    padding: 12px 16px;
+                    font-size: 15px;
+                    margin-top: 4px;
+                }
+
+                .login-page__copyright {
+                    margin-top: 20px;
+                    padding-top: 16px;
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+}
+
+// Для экстремально маленькой высоты (мобильные в альбомной)
+@media all and (max-height: 500px) {
+    .login-page {
+        padding: 60px 15px 15px;
+
+        .login-page__container {
+            padding: 16px;
+
+            .login-page__logo {
+                margin-bottom: 16px;
+
+                .login-page__title {
+                    font-size: 22px;
+                    margin-bottom: 2px;
+                }
+
+                .login-page__subtitle {
+                    font-size: 13px;
+                }
+            }
+
+            .login-page__form {
+                .login-page__error {
+                    margin-bottom: 12px;
+                    padding: 8px;
+                    font-size: 12px;
+                }
+
+                .login-page__field {
+                    margin-bottom: 12px;
+
+                    .login-page__input {
+                        padding: 8px 14px 8px 40px;
+                        font-size: 13px;
+                    }
+                }
+
+                .login-page__button {
+                    padding: 10px 14px;
+                    font-size: 14px;
+                }
+
+                .login-page__copyright {
+                    margin-top: 16px;
+                    padding-top: 12px;
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
+
+// Для темной темы - дополнительные настройки
+@media (prefers-color-scheme: dark) {
+    .login-page {
+        .login-page__container {
+            background: #0a0a0a;
+            border-color: var(--colorForBorderCard);
+
+            .login-page__form {
+                .login-page__input {
+                    background: rgba(255, 255, 255, 0.03);
+                    border-color: rgba(255, 255, 255, 0.15);
+                }
+
+                .login-page__button {
+                    border-color: rgba(255, 255, 255, 0.8);
+                }
+            }
+        }
+    }
+}
