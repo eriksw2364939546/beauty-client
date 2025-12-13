@@ -1,4 +1,5 @@
 // app/prices/page.js
+import { Suspense } from "react";
 import PricesPage from "@/modules/PricesPage/PricesPage";
 import pricesService from "@/services/prices.service";
 import servicesService from "@/services/services.service";
@@ -7,6 +8,27 @@ export const metadata = {
     title: "Tarifs des services - Salon de beauté",
     description: "Découvrez nos tarifs pour tous les services de beauté",
 };
+
+// 🔥 ВАЖНО: Указываем что это динамическая страница
+export const dynamic = 'force-dynamic';
+
+// Компонент-загрузчик (показывается пока грузятся searchParams)
+function PricesPageSkeleton() {
+    return (
+        <main className="prices-page">
+            <div className="prices-hero__image" style={{
+                width: '100%',
+                height: '600px',
+                background: '#f0f0f0'
+            }} />
+            <div className="container">
+                <div className="prices-hero__content">
+                    <h1>Chargement...</h1>
+                </div>
+            </div>
+        </main>
+    );
+}
 
 export default async function PricesPageRoute({ searchParams }) {
     try {
@@ -32,7 +54,6 @@ export default async function PricesPageRoute({ searchParams }) {
         let pricesData = [];
         let meta = { page: 1, limit: 3, total: 0, pages: 1 };
         let activeServiceId = null;
-        let shouldUseGrouped = false; // Флаг для использования grouped режима
 
         if (hasValidFilter) {
             // Находим услугу по slug
@@ -64,35 +85,39 @@ export default async function PricesPageRoute({ searchParams }) {
                 meta = result.meta;
             }
         } else {
-            // Если не выбрана услуга - получаем все с пагинацией (НЕ grouped!)
+            // Если не выбрана услуга - получаем все с пагинацией
             const result = await pricesService.getAll({ page, limit });
             pricesData = result.data;
             meta = result.meta;
         }
 
         return (
-            <PricesPage
-                prices={pricesData}
-                services={services}
-                activeServiceSlug={hasValidFilter ? serviceSlug : 'all'}
-                activeServiceId={activeServiceId}
-                meta={meta}
-                currentPage={page}
-                isGrouped={false} // Всегда false т.к. используем getAll()
-            />
+            <Suspense fallback={<PricesPageSkeleton />}>
+                <PricesPage
+                    prices={pricesData}
+                    services={services}
+                    activeServiceSlug={hasValidFilter ? serviceSlug : 'all'}
+                    activeServiceId={activeServiceId}
+                    meta={meta}
+                    currentPage={page}
+                    isGrouped={false}
+                />
+            </Suspense>
         );
     } catch (error) {
         console.error('Error loading prices page:', error);
         return (
-            <PricesPage
-                prices={[]}
-                services={[]}
-                activeServiceSlug="all"
-                activeServiceId={null}
-                meta={{ page: 1, limit: 12, total: 0, pages: 1 }}
-                currentPage={1}
-                isGrouped={false}
-            />
+            <Suspense fallback={<PricesPageSkeleton />}>
+                <PricesPage
+                    prices={[]}
+                    services={[]}
+                    activeServiceSlug="all"
+                    activeServiceId={null}
+                    meta={{ page: 1, limit: 12, total: 0, pages: 1 }}
+                    currentPage={1}
+                    isGrouped={false}
+                />
+            </Suspense>
         );
     }
 }
